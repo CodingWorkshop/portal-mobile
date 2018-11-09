@@ -34,9 +34,10 @@
 </template>
 
 <script>
-import sum from "@/domains/sum.js";
+import sum from '@/domains/sum.js';
+
 export default {
-  name: "HelloWorld",
+  name: 'HelloWorld',
   props: {
     msg: String
   },
@@ -48,6 +49,12 @@ export default {
       b: b,
       c: sum(a, b)
     };
+  },
+  mounted: function() {
+    const api = 'https://api.github.com/';
+    this.$http.get(api).then(response => {
+      console.log(response.data);
+    });
   }
 };
 </script>
