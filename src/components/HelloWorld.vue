@@ -4,12 +4,14 @@
     <h2>{{ a }}+{{ b }}={{ c }}</h2>
     <p>state Show : {{ $store.state.HelloWorld.show }}</p>
     <p>reserve state Show (getter) : {{ $store.getters.reverseShow }}</p>
+    {{show}}、{{sameShow}}
   </div>
 </template>
 
 <script>
 import sum from '@/domains/sum.js';
-
+import { mapState } from 'vuex';
+// mapState、mapGetters 一般写在 computed 中 , mapActions 一般写在 methods 中。
 export default {
   name: 'HelloWorld',
   props: {
@@ -23,6 +25,15 @@ export default {
       b: b,
       c: sum(a, b)
     };
+  },
+  computed: {
+    ...mapState({
+      show: state => state.HelloWorld.show
+    }),
+    // 此寫法等同於上面
+    sameShow() {
+      return this.$store.state.HelloWorld.show;
+    }
   },
   mounted: function() {
     const api = 'https://api.github.com/';
