@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>{{ a }}+{{ b }}={{ c }}</h2>
-    <p>{{ $store.state.HelloWorld.show }}</p>
+    <p>state Show : {{ $store.state.HelloWorld.show }}</p>
   </div>
 </template>
 

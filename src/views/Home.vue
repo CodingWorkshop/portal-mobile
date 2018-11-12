@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <button @click="$store.commit('toggleShow')">toggle state Show</button>
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
