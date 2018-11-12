@@ -9,5 +9,11 @@ export default {
     toggleShow(state) {
       state.show = !state.show;
     }
+  },
+  // 官方推荐 , 将异步操作放在 action 中。
+  actions: {
+    toggleShow($store) {
+      $store.commit('toggleShow');
+    }
   }
 };
