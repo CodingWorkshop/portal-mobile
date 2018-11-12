@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <button @click="$store.dispatch('toggleShow')">toggle state Show</button>
+    <button @click="$store.commit('toggleShow')">toggle state Show ( commit mutations )</button>
+    <br><br>
+    <button @click="$store.dispatch('toggleShow')">toggle state Show ( dispatch action )</button>
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>

@@ -2,9 +2,9 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>{{ a }}+{{ b }}={{ c }}</h2>
-    <p>state Show : {{ $store.state.HelloWorld.show }}</p>
-    <p>reserve state Show (getter) : {{ $store.getters.reverseShow }}</p>
-    {{show}}、{{sameShow}}
+    <p><b>Show</b> : {{ $store.state.HelloWorld.show }}</p>
+    <p><b>reserve state Show (getter)</b> : {{ $store.getters.reverseShow }}</p>
+    <p><b>mapState</b> : {{show}}、{{sameShow}}</p>
   </div>
 </template>
 
