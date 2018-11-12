@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>{{ a }}+{{ b }}={{ c }}</h2>
-    <p><b>Show</b> : {{ $store.state.HelloWorld.show }}</p>
+    <p><b>Show</b> : {{ $store.state.show.show }}</p>
     <p><b>reserve state Show (getter)</b> : {{ $store.getters.reverseShow }}</p>
     <p><b>mapState</b> : {{show}}、{{sameShow}}</p>
   </div>
@@ -28,11 +28,11 @@ export default {
   },
   computed: {
     ...mapState({
-      show: state => state.HelloWorld.show
+      show: state => state.show.show
     }),
     // 此寫法等同於上面
     sameShow() {
-      return this.$store.state.HelloWorld.show;
+      return this.$store.state.show.show;
     }
   },
   mounted: function() {
