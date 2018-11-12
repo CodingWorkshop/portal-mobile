@@ -2,7 +2,6 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>{{ a }}+{{ b }}={{ c }}</h2>
-    <p><b>Show</b> : {{ $store.state.show.show }}</p>
     <p><b>reserve state Show (getter)</b> : {{ $store.getters.reverseShow }}</p>
     <p><b>mapState</b> : {{show}}、{{sameShow}}</p>
   </div>
