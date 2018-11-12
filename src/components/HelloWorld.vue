@@ -3,6 +3,7 @@
     <h1>{{ msg }}</h1>
     <h2>{{ a }}+{{ b }}={{ c }}</h2>
     <p>state Show : {{ $store.state.HelloWorld.show }}</p>
+    <p>reserve state Show (getter) : {{ $store.getters.reverseShow }}</p>
   </div>
 </template>
 
