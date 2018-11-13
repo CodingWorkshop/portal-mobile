@@ -15,7 +15,8 @@
     "vue": "^2.5.17",
     "vue-axios": "^2.1.4",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vux": "^2.9.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.5",
@@ -31,10 +32,15 @@
     "babel-jest": "^23.6.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0-0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
     "lint-staged": "^7.2.2",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
-    "vue-template-compiler": "^2.5.17"
+    "vue-cli-plugin-vux": "^3.0.0",
+    "vue-loader": "14.2.3",
+    "vue-template-compiler": "^2.5.17",
+    "vux-loader": "^1.2.9"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
