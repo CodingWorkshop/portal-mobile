@@ -1,3 +1,5 @@
+[![Dependency Status](https://david-dm.org/CodingWorkshop/portal-mobile.svg)](https://david-dm.org/CodingWorkshop/portal-mobile) [![devDependency Status](https://david-dm.org/CodingWorkshop/portal-mobile/dev-status.svg)](https://david-dm.org/CodingWorkshop/portal-mobile?type=dev)
+
 # portal-mobile
 
 ## Project setup
