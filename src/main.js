@@ -14,3 +14,12 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app');
+
+router.beforeEach(function(to, from, next) {
+  let requiredLogin = to.meta.requiredLogin || false;
+  if (requiredLogin && !store.state.login.loginStatus) {
+    next('notfound');
+  } else {
+    next();
+  }
+});
