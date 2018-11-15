@@ -11,8 +11,10 @@
     <Category title="奶油蛋糕"/>
     <Category title="草莓蛋糕"/>
     <Category title="香草蛋糕"/>
-    <div id="nav" style="height:70px;">
-      <router-link to="/">Home</router-link>
+    <div id="nav" style="height:100px;">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/account">Account</router-link>
     </div>
     <router-view />
     <Guide />
