@@ -52,3 +52,9 @@ export default {
   }
 };
 </script>
+
+<style lang="less">
+.home {
+  height: 200px;
+}
+</style>
