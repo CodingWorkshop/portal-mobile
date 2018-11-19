@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <!-- <HeaderTitle/>
+    <Button type="primary">Button</Button>
+       <!-- <HeaderTitle/>
     <Announcement />
     <Carousel />
     <GameType />

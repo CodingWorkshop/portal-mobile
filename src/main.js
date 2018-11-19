@@ -57,6 +57,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faBullhorn } from '@fortawesome/free-solid-svg-icons';
 import { faBirthdayCake } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import './plugins/iview.js';
 library.add(faGamepad);
 library.add(faMoneyBillAlt);
 library.add(faPhoneVolume);
