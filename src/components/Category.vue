@@ -1,26 +1,22 @@
 <template>
-    <div style="border-top:5px solid rgb(232, 232, 232);margin-bottom:10px;">
+    <div style="border-top:5px solid rgb(232, 232, 232);margin-bottom:10px;overflow: auto;">
         <h1 style="font-size: 16px;margin:5px 10px;;text-align:left;">{{ title }}</h1>
-        <scroller lock-y scrollbar-x>
+        <div>
             <div class="box1">
                 <div class="box1-item" v-for="(i, index) in asyncCount" :key="index">
                     <img src="../assets/cake.png" style="width:70px;"><br>
                     <span>{{i.name}}</span>
                 </div>
             </div>
-        </scroller>
+        </div>
     </div>
 </template>
 
 <script>
-import { Scroller } from 'vux';
-
 export default {
   name: 'Category',
   props: ['title'],
-  components: {
-    Scroller
-  },
+  components: {},
   data: function() {
     return {
       asyncCount: [
