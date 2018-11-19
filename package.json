@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postinstall": "if test \"$NODE_ENV\" = \"production\" ; then npm run build ; fi ",
+    "postinstall": "node bin\\pack.js",
     "start": "node server.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
