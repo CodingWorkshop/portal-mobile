@@ -53,7 +53,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style>
 .home {
   height: 200px;
 }

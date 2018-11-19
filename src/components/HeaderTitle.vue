@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style>
 .vux-header-left {
   top: 4px !important;
 }

@@ -58,7 +58,7 @@ export default {
   }
 };
 </script>
-<style lang="less">
+<style>
 .weui-grid:before,
 .weui-grid:after {
   border: none !important;

@@ -31,13 +31,3 @@ export default {
   }
 };
 </script>
-
-<style lang="less">
-.vux-indicator.custom-bottom {
-  bottom: 30px;
-
-  .vux-icon-dot.active {
-    background-color: rgb(255, 230, 0) !important;
-  }
-}
-</style>

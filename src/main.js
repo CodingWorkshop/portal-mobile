@@ -9,41 +9,41 @@ import './registerServiceWorker';
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
 
-//主導覽列
-import { Tabbar } from 'vux/src/components/tabbar/tabbar.vue';
-import { TabbarItem } from 'vux/src/components/tabbar/tabbar-item.vue';
-Vue.component('tabbar', Tabbar);
-Vue.component('tabbar-item', TabbarItem);
+// //主導覽列
+// import { Tabbar } from 'vux/src/components/tabbar/tabbar.vue';
+// import { TabbarItem } from 'vux/src/components/tabbar/tabbar-item.vue';
+// Vue.component('tabbar', Tabbar);
+// Vue.component('tabbar-item', TabbarItem);
 
-//最新消息-跑馬燈
-import { Marquee } from 'vux/src/components/marquee/marquee.vue';
-import { MarqueeItem } from 'vux/src/components/marquee/marquee-item.vue';
-Vue.component('marquee', Marquee);
-Vue.component('marquee-item', MarqueeItem);
+// //最新消息-跑馬燈
+// import { Marquee } from 'vux/src/components/marquee/marquee.vue';
+// import { MarqueeItem } from 'vux/src/components/marquee/marquee-item.vue';
+// Vue.component('marquee', Marquee);
+// Vue.component('marquee-item', MarqueeItem);
 
-//輪播
-import { Swiper } from 'vux/src/components/swiper/swiper.vue';
-import { SwiperItem } from 'vux/src/components/swiper/swiper-item.vue';
-Vue.component('swiper', Swiper);
-Vue.component('swiper-item', SwiperItem);
+// //輪播
+// import { Swiper } from 'vux/src/components/swiper/swiper.vue';
+// import { SwiperItem } from 'vux/src/components/swiper/swiper-item.vue';
+// Vue.component('swiper', Swiper);
+// Vue.component('swiper-item', SwiperItem);
 
-//置頂?
-import { Sticky } from 'vux/src/components/sticky/index.vue';
-Vue.component('sticky', Sticky);
+// //置頂?
+// import { Sticky } from 'vux/src/components/sticky/index.vue';
+// Vue.component('sticky', Sticky);
 
-//icon
-import { Icon } from 'vux/src/components/icon/index.vue';
-Vue.component('icon', Icon);
+// //icon
+// import { Icon } from 'vux/src/components/icon/index.vue';
+// Vue.component('icon', Icon);
 
-//scroller
-import { Scroller } from 'vux/src/components/scroller/index.vue';
-Vue.component('scroller', Scroller);
+// //scroller
+// import { Scroller } from 'vux/src/components/scroller/index.vue';
+// Vue.component('scroller', Scroller);
 
-//grid
-import { Grid } from 'vux/src/components/grid/grid.vue';
-import { GridItem } from 'vux/src/components/grid/grid-item.vue';
-Vue.component('grid', Grid);
-Vue.component('grid-item', GridItem);
+// //grid
+// import { Grid } from 'vux/src/components/grid/grid.vue';
+// import { GridItem } from 'vux/src/components/grid/grid-item.vue';
+// Vue.component('grid', Grid);
+// Vue.component('grid-item', GridItem);
 
 //FontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core';
