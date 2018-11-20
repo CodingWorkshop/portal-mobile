@@ -2,7 +2,7 @@
     <div>
       <Row>
           <i-col :span="4" class="box1-item" v-for="(i, index) in asyncCount" :key="index">
-               <font-awesome-icon v-bind:icon="i.icon" style="font-size: 40px;margin:10px auto;" /><br>
+               <font-awesome-icon class="icon" v-bind:icon="i.icon" /><br>
                <span>{{i.name}}</span>
           </i-col>
       </Row>
@@ -46,12 +46,13 @@ export default {
 };
 </script>
 
-<style scoped>
-.box1-item {
-  background-color: #fff;
-  border-right: 1px solid #ccc;
-  /* float: left; */
-  text-align: center;
-  color: rgba(255, 122, 11, 0.69);
-}
+<style lang="sass" scoped>
+.box1-item 
+  background-color: #fff
+  border-right: 1px solid #ccc
+  text-align: center
+  color: rgba(255, 122, 11, 0.69)
+  .icon
+    font-size: 40px
+    margin: 10px auto
 </style>

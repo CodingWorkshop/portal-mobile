@@ -52,9 +52,3 @@ export default {
   }
 };
 </script>
-
-<style>
-.home {
-  height: 200px;
-}
-</style>

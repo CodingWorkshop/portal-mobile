@@ -4,7 +4,7 @@
           <CarouselItem v-for="i in demo1_list" :key="i.img">
             <Row>
                 <i-col span="24">
-                   <img v-bind:src="i.img" class="demo-carousel" style="width:100%;"/>
+                   <img v-bind:src="i.img" class="demo-carousel"/>
                 </i-col>
             </Row>
           </CarouselItem>
@@ -34,3 +34,7 @@ export default {
   }
 };
 </script>
+<style lang="sass" scoped>
+img
+  width: 100%;
+</style>

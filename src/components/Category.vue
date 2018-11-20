@@ -1,10 +1,10 @@
 <template>
-    <div style="border-top:5px solid rgb(232, 232, 232);margin-bottom:10px;overflow: auto;">
-        <h1 style="font-size: 16px;margin:5px 10px;;text-align:left;">{{ title }}</h1>
-        <div>
+    <div class="outer">
+        <h1>{{ title }}</h1>
+        <div class="scroll">
             <div class="box1">
                 <div class="box1-item" v-for="(i, index) in asyncCount" :key="index">
-                    <img src="../assets/cake.png" style="width:70px;"><br>
+                    <img src="../assets/cake.png"><br>
                     <span>{{i.name}}</span>
                 </div>
             </div>
@@ -50,23 +50,29 @@ export default {
 };
 </script>
 
-<style scoped>
-.box1 {
-  height: 100px;
-  position: relative;
-  width: 800px;
-}
-
-.box1-item {
-  width: 120px;
-  height: 100px;
-  background-color: #fff;
-  display: inline-block;
-  text-align: center;
-  color: rgba(255, 122, 11, 0.69);
-}
-
-.box1-item:first-child {
-  margin-left: -75px;
-}
+<style lang="sass" scoped>
+.outer 
+  border-top: 5px solid rgb(232, 232, 232)
+  margin-bottom: 10px
+  h1
+    font-size: 16px
+    margin: 5px 10px
+    text-align: left
+  .scroll 
+    overflow: auto
+    .box1 
+      height: 100px
+      position: relative
+      width: 800px
+      .box1-item 
+        width: 120px
+        height: 100px
+        background-color: #fff
+        display: inline-block
+        text-align: center
+        color: rgba(255, 122, 11, 0.69)
+        img
+         width: 70px
+      .box1-item:first-child 
+        margin-left: -75px
 </style>
