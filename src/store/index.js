@@ -25,7 +25,7 @@ export default new Vuex.Store({
           }),
         removeItem: key => localStorage.removeItem(key)
       },
-      paths: ['login']
+      paths: ['login.loginStatus', 'login.user']
     })
   ]
 });
