@@ -26,3 +26,30 @@ router.beforeEach(function(to, from, next) {
     next();
   }
 });
+
+axios.interceptors.response.use(
+  function(response) {
+    if (response.data.IsSuccess) {
+      return response.data;
+    } else {
+      return Promise.reject(response.data.ErrorMessage);
+    }
+  },
+  function(error) {
+    let errorList = [
+      {
+        status: 404,
+        msg: 'Not Found',
+        callback: function() {
+          alert('找不到啦');
+        }
+      }
+    ];
+
+    let currentError = errorList.filter(err => {
+      return err.status === error.response.status;
+    })[0];
+    currentError.callback();
+    return Promise.reject(currentError.msg);
+  }
+);
