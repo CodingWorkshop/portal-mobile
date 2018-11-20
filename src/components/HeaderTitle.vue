@@ -3,9 +3,13 @@
         <i-col class="logo" span="6">
             <img alt="Cake logo" src="../assets/cakeLogo.png">
         </i-col>
-        <i-col class="icon" span="18">
-            <font-awesome-icon icon="search" />
-            <font-awesome-icon icon="heart" />
+        <i-col class="icons" span="18">
+            <Button type="text" @click="$store.commit('openDrawerPage','search')">
+                <font-awesome-icon class="icon" icon="search" />
+            </Button>
+            <Button type="text">
+                <font-awesome-icon class="icon" icon="heart" @click="$store.commit('openDrawerPage','favorite')" />
+            </Button>
         </i-col>
     </Row>
 </template>
@@ -23,9 +27,11 @@ export default {
     .logo
         text-align: left
         img
-            width: 120px;
-    .icon
+            width: 120px
+    .icons
         text-align: right
-        font-size: 26px
-        color: #fd7e14
+        .icon
+            margin: 5px
+            font-size: 26px
+            color: #fd7e14
 </style>
