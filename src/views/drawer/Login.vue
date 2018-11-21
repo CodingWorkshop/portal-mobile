@@ -19,7 +19,7 @@
         </Form>
         <div v-else>
           <h1>安安 {{$store.state.login.user}}</h1>
-          <button @click="$store.dispatch('submitLogout')">登出</button>
+          <Button type="primary" @click="$store.dispatch('submitLogout')">登出</Button>
         </div>
     </div>
 </template>
