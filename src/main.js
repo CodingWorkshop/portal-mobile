@@ -11,10 +11,12 @@ Vue.use(VueAxios, axios);
 
 import './plugins/iview.js';
 import './plugins/fortAwesome.js';
+import i18n from './i18n';
 
 new Vue({
   router,
   store,
+  i18n,
   render: h => h(App)
 }).$mount('#app');
 
