@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h1>GameList</h1>
+        <h1>遊戲列表</h1>
+        <Button type="primary" @click="$store.commit('openDrawerPage','game-detail')">老虎機</Button>
     </div>
 </template>
 

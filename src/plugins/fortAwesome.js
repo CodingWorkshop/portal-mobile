@@ -1,22 +1,28 @@
 import Vue from 'vue';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faGamepad } from '@fortawesome/free-solid-svg-icons';
-import { faMoneyBillAlt } from '@fortawesome/free-solid-svg-icons';
-import { faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
-import { faGift } from '@fortawesome/free-solid-svg-icons';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { faBullhorn } from '@fortawesome/free-solid-svg-icons';
-import { faBirthdayCake } from '@fortawesome/free-solid-svg-icons';
+import {
+  faGamepad,
+  faMoneyBillAlt,
+  faPhoneVolume,
+  faGift,
+  faUser,
+  faSearch,
+  faHeart,
+  faBullhorn,
+  faBirthdayCake,
+  faAngleLeft
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+library.add(faAngleLeft);
+library.add(faBirthdayCake);
+library.add(faBullhorn);
 library.add(faGamepad);
+library.add(faGift);
+library.add(faHeart);
 library.add(faMoneyBillAlt);
 library.add(faPhoneVolume);
-library.add(faGift);
-library.add(faUser);
 library.add(faSearch);
-library.add(faHeart);
-library.add(faBullhorn);
-library.add(faBirthdayCake);
+library.add(faUser);
+
 Vue.component('font-awesome-icon', FontAwesomeIcon);

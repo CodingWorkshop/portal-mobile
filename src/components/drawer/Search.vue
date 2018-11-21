@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Search</h1>
+        <h1>搜尋遊戲</h1>
     </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Favorite</h1>
+        <h1>我的最愛</h1>
         <Button type="primary" @click="$store.commit('openDrawerPage','game-list')">到遊戲逛逛</Button>
     </div>
 </template>
