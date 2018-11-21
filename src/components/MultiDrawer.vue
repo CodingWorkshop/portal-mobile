@@ -26,11 +26,11 @@
 
 <script>
 import { mapState } from 'vuex';
-import DrawerSearch from '@/components/drawer/Search.vue';
-import DrawerFavorite from '@/components/drawer/Favorite.vue';
-import DrawerLogin from '@/components/drawer/Login.vue';
-import DrawerGameDetail from '@/components/drawer/GameDetail.vue';
-import DrawerGameList from '@/components/drawer/GameList.vue';
+import DrawerSearch from '@/views/drawer/Search.vue';
+import DrawerFavorite from '@/views/drawer/Favorite.vue';
+import DrawerLogin from '@/views/drawer/Login.vue';
+import DrawerGameDetail from '@/views/drawer/GameDetail.vue';
+import DrawerGameList from '@/views/drawer/GameList.vue';
 
 export default {
   name: 'MultiDrawer',
