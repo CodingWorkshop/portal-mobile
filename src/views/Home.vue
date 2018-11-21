@@ -9,7 +9,7 @@
         <input v-model="password" type="password" placeholder="請輸入密碼" required>
       </p>
       <p>
-        <button type="submit" 
+        <button type="submit"
                 :disabled="$store.state.login.signing">
             {{$store.state.login.signing?'登入中...':'登入'}}
         </button>
@@ -20,7 +20,6 @@
       <button @click="$store.dispatch('submitLogout')">登出</button>
       <br><br>
       <HelloWorld msg="Welcome"/>
-      <button @click="$store.commit('toggleShow')">toggle state Show ( commit mutations )</button>
     </div>
   </div>
 </template>

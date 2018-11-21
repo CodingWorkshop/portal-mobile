@@ -1,24 +1,28 @@
 export default {
   state: {
-    openPage: 'none',
-    closePage: 'none',
-    pageList: ['search', 'favorite', 'login', 'game-detail', 'game-list']
-  },
-  getters: {
-    pageOpenList(state) {
-      return state.pageList.map(l => ({
+    pageList: ['search', 'favorite', 'login', 'game-detail', 'game-list'].map(
+      l => ({
         name: l,
-        open: l === state.openPage ? !(l === state.closePage) : false
-      }));
-    }
+        open: false
+      })
+    )
   },
   mutations: {
     openDrawerPage(state, payload) {
-      state.openPage = payload;
-      state.closePage = 'none';
+      state.pageList.some(l => {
+        if (l.name === payload) {
+          l.open = true;
+          return true;
+        }
+      });
     },
     closeDrawerPage(state, payload) {
-      state.closePage = payload;
+      state.pageList.some(l => {
+        if (l.name === payload) {
+          l.open = false;
+          return true;
+        }
+      });
     }
   },
   actions: {}

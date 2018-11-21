@@ -1,9 +1,9 @@
 <template>
     <div>
-       <Drawer v-for="list in drawerList" 
-               :key="list.name" 
-               :title="list.name" 
-               width="100" 
+       <Drawer v-for="list in pageList"
+               :key="list.name"
+               :title="list.name"
+               width="100"
                v-model="list.open"
                @on-close="close(list.name)">
            <!--在動態切換元件過程中，我們可能會希望保存元件的狀態（例如：保留使用者輸入的資料）而避免重新載入元件-->
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex';
+import { mapState } from 'vuex';
 import DrawerSearch from '@/components/drawer/Search.vue';
 import DrawerFavorite from '@/components/drawer/Favorite.vue';
 import DrawerLogin from '@/components/drawer/Login.vue';
@@ -36,20 +36,13 @@ export default {
   },
   computed: {
     ...mapState({
-      openPage: state => state.drawer.openPage
-    }),
-    ...mapGetters({
-      drawerList: 'pageOpenList'
+      pageList: state => state.drawer.pageList
     })
   },
   methods: {
     close: function(pageName) {
       this.$store.commit('closeDrawerPage', pageName);
     }
-  },
-  created: function() {
-    this.$store.commit('openDrawerPage', 'none');
-    this.$store.commit('closeDrawerPage', 'none');
   }
 };
 </script>
