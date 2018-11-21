@@ -1,11 +1,13 @@
 <template>
     <div>
-      <Row>
-          <i-col :span="4" class="box1-item" v-for="(i, index) in asyncCount" :key="index">
-               <font-awesome-icon class="icon" v-bind:icon="i.icon" /><br>
-               <span>{{i.name}}</span>
-          </i-col>
-      </Row>
+      <Affix :offset-top="0">
+        <Row>
+            <i-col :span="4" class="box1-item" v-for="(i, index) in asyncCount" :key="index">
+                <font-awesome-icon class="icon" v-bind:icon="i.icon" /><br>
+                <span>{{i.name}}</span>
+            </i-col>
+        </Row>
+      </Affix>
     </div>
 </template>
 
@@ -47,7 +49,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.box1-item 
+.box1-item
   background-color: #fff
   border-right: 1px solid #ccc
   text-align: center

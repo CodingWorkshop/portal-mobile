@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="game-grid">
       <Carousel loop :dots="'outside'" :arrow="'never'">
           <CarouselItem v-for="i in 3" :key="i" class="carouse-item">
             <Row v-for="j in 2" :key="j">
@@ -25,6 +25,9 @@ export default {
 };
 </script>
 <style lang="sass" scoped>
+.game-grid
+  position: relative;
+  z-index: 0;
 .carouse-item
     background: #fff
     img
