@@ -40,11 +40,20 @@ export default {
   methods: {
     checkForm: function() {
       this.$store.commit('updateSigning');
-      this.$store.dispatch({
-        type: 'submitLogin',
-        user: this.user,
-        password: this.password
-      });
+      this.$store
+        .dispatch({
+          type: 'submitLogin',
+          user: this.user,
+          password: this.password
+        })
+        .then(() => {
+          const destinationPage = this.$store.state.login.destinationPage;
+          if (destinationPage) {
+            this.$router.push(destinationPage);
+            this.$store.commit('recordDestinationPage', '');
+            this.$store.commit('closeDrawerPage', 'login');
+          }
+        });
     }
   }
 };
