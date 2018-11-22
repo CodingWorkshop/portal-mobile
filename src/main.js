@@ -4,10 +4,23 @@ import VueAxios from 'vue-axios';
 import App from './App.vue';
 import router from './router';
 import store from './store/index';
+import VueTouch from 'vue-touch';
 //import './registerServiceWorker';
+
+//自定義手勢(連續點擊兩下)
+VueTouch.registerCustomEvent('doubletap', {
+  type: 'tap',
+  taps: 2
+});
+
+//定義swipe全局默認值
+VueTouch.config.swipe = {
+  threshold: 10
+};
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
+Vue.use(VueTouch, { name: 'v-touch' });
 
 import './plugins/iview.js';
 import './plugins/fortAwesome.js';
