@@ -16,10 +16,7 @@
                 {{list.name}}
               </h1>
            </div>
-           <!--在動態切換元件過程中，我們可能會希望保存元件的狀態（例如：保留使用者輸入的資料）而避免重新載入元件-->
-           <keep-alive>
-              <component :is="'drawer-'+list.name"></component>
-           </keep-alive>
+           <component :is="'drawer-'+list.name"></component>
        </Drawer>
     </div>
 </template>

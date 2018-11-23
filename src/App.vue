@@ -27,15 +27,20 @@ export default {
   color: #2c3e50;
   padding-bottom: 50px;
 }
+/* 竖屏 css */
+// @media screen and (orientation: portrait) {
+// }
 
-#nav {
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+/* 横屏 css */
+// @media screen and (orientation: landscape) {
+//   html {
+//     transform: rotate(-90deg);
+//     transform-origin: left top;
+//     width: 100vh;
+//     overflow-y: hidden;
+//     position: absolute;
+//     top: 100%;
+//     left: 0;
+//   }
+// }
 </style>
