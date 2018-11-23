@@ -10,7 +10,8 @@ import {
   faHeart,
   faBullhorn,
   faBirthdayCake,
-  faAngleLeft
+  faAngleLeft,
+  faSpinner
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
@@ -24,5 +25,5 @@ library.add(faMoneyBillAlt);
 library.add(faPhoneVolume);
 library.add(faSearch);
 library.add(faUser);
-
+library.add(faSpinner);
 Vue.component('font-awesome-icon', FontAwesomeIcon);

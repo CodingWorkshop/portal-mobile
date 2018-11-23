@@ -3,7 +3,8 @@ export default {
     signing: false,
     loginStatus: false,
     user: '',
-    meidon: ''
+    meidon: '',
+    destinationPage: ''
   },
   getters: {},
   mutations: {
@@ -15,6 +16,9 @@ export default {
     },
     updateUser(state, payload) {
       state.user = payload.user;
+    },
+    recordDestinationPage(state, payload) {
+      state.destinationPage = payload;
     }
   },
   actions: {
