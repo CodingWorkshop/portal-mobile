@@ -39,8 +39,24 @@ npm install --save express serve-static connect-history-api-fallback
 
 - package.json
 ```
-"postinstall": "if test \"$NODE_ENV\" = \"production\" ; then npm run build ; fi ",
-"start": "node server.js"
+"postinstall": "node scripts/tasks/pack.js",
+"start": "node scripts/express/server.js"
+```
+
+- pack.js
+```
+const {
+    spawn
+} = require('child_process');
+
+if (process.env.NODE_ENV === 'production') {
+    return spawn(/^win/.test(process.platform) ? 'npm.cmd' : 'npm', ['run', 'build'], {
+        stdio: 'inherit'
+    });
+} else {
+    console.log('Environment is not production.');
+    console.log('Do not execute npm run build.')
+}
 ```
 
 - server.js
