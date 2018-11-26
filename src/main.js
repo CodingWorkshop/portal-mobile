@@ -20,7 +20,9 @@ VueTouch.config.swipe = {
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
-Vue.use(VueTouch, { name: 'v-touch' });
+Vue.use(VueTouch, {
+  name: 'v-touch'
+});
 
 import './plugins/iview.js';
 import './plugins/fortAwesome.js';
