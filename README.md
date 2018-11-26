@@ -3,47 +3,56 @@
 # portal-mobile
 
 ## Project setup
+
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 npm run serve
 ```
 
 ### Compiles and minifies for production
+
 ```
 npm run build
 ```
 
 ### Run your tests
+
 ```
 npm run test
 ```
 
 ### Lints and fixes files
+
 ```
 npm run lint
 ```
 
 ### Run your unit tests
+
 ```
 npm run test:unit
 ```
 
 ### HeroKu
+
 ```
 npm install --save express serve-static connect-history-api-fallback
 ```
 
 - package.json
+
 ```
 "postinstall": "node scripts/tasks/pack.js",
 "start": "node scripts/express/server.js"
 ```
 
 - pack.js
+
 ```
 const {
     spawn
@@ -60,6 +69,7 @@ if (process.env.NODE_ENV === 'production') {
 ```
 
 - server.js
+
 ```
 const history = require('connect-history-api-fallback');
 const express = require('express');
@@ -67,7 +77,7 @@ const serveStatic = require('serve-static');
 const path = require('path');
 app = express();
 app.use(history());
-app.use(serveStatic(path.join(__dirname, 'dist')));
+app.use(serveStatic(path.join(__dirname, '..', '..', 'dist')));
 const port = process.env.PORT || 80;
 app.listen(port);
 ```
