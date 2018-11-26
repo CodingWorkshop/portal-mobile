@@ -1,0 +1,74 @@
+@mixin login-base ( $body-bg, $header-font, $bar-login-font, $bar-register-font, $title-icon, $form-login-btn-bg, $form-login-btn-font, $form-regist-btn-bg, $form-regist-btn-font) {
+    .mobile-login {
+        background-color: $body-bg;
+        font-family: Microsoft JhengHei;
+        height: 800px;
+        .ml-header {
+            padding: 10px;
+            span {
+                color: $header-font;
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+        .ml-bar {
+            font-size: 15px;
+            .ml-b-login {
+                font-weight: bold;
+                border-bottom: 2px solid;
+                color: $bar-login-font;
+            }
+            .ml-b-regist {
+                font-weight: bold;
+                border-bottom: 2px solid;
+                color: $bar-register-font;
+            }
+        }
+        .ml-title-icon {
+            color: $title-icon;
+            font-size: 120px;
+        }
+        .ml-form {
+            input {
+                border-radius: 5px;
+            }
+            .ml-f-btn-login {
+                background-color: $form-login-btn-bg;
+                color: $form-login-btn-font;
+                letter-spacing: 6px;
+                border: $form-login-btn-bg;
+                border-radius: 7px;
+            }
+            .ml-f-btn-regist {
+                background-color: $form-regist-btn-bg;
+                color: $form-regist-btn-font;
+                letter-spacing: 6px;
+                border: $form-regist-btn-bg;
+                border-radius: 7px;
+            }
+        }
+    }
+}
+
+
+/*@mixin base ( $body-bg, $body-font, $btn, $span, $card-font, $card-header-bg, $card-body-bg) {
+    background-color: $body-bg;
+    color: $body-font;
+    button {
+        background-color: $btn;
+        border-color: $btn;
+    }
+    span {
+        font-size: 20px;
+        color: $span;
+    }
+    .card {
+        color: $card-font;
+        .card-header {
+            background-color: $card-header-bg;
+        }
+        .card-body {
+            background-color: $card-body-bg;
+        }
+    }
+}*/

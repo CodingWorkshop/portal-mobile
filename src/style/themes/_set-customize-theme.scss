@@ -1,0 +1,5 @@
+@import 'base';
+@mixin theme-customize() {
+    //customize-color
+    @include login-base( $body-bg, $header-font, $bar-login-font, $bar-register-font, $title-icon, $form-login-btn-bg, $form-login-btn-font, $form-regist-btn-bg, $form-regist-btn-font);
+}
