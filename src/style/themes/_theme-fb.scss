@@ -1,0 +1,23 @@
+@import 'base';
+@mixin theme-fb() {
+    $body-bg: #216ebb;
+    $header-font: rgb(253, 253, 253);
+    $bar-login-font: #f0ebeb;
+    $bar-register-font: rgb(196, 196, 196);
+    $title-icon: #f5f5f5;
+    $form-login-btn-bg: #1a5794;
+    $form-login-btn-font: #ffffff;
+    $form-regist-btn-bg: #c1c7d8;
+    $form-regist-btn-font: #ffffff;
+    @include login-base( $body-bg, $header-font, $bar-login-font, $bar-register-font, $title-icon, $form-login-btn-bg, $form-login-btn-font, $form-regist-btn-bg, $form-regist-btn-font);
+}
+
+
+/*$body-bg: #ffffff;
+    $body-font: #fdfdfd;
+    $btn: #8b8ae0;
+    $span: #db3232;
+    $card-font: #ffffff;
+    $card-header-bg: #383838;
+    $card-body-bg: #777575;
+    @include base( $body-bg, $body-font, $btn, $span, $card-font, $card-header-bg, $card-body-bg);*/

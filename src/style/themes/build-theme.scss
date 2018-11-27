@@ -1,0 +1,4 @@
+@import 'theme-customize';
+.theme {
+    @include theme-customize();
+}
