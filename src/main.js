@@ -25,7 +25,8 @@ Vue.use(VueTouch, {
 });
 
 import './plugins/iview.js';
-import './plugins/fortAwesome.js';
+import './plugins/fortAwesome-regular.js';
+import './plugins/fortAwesome-solid.js';
 import i18n from './i18n';
 
 router.beforeEach(function(to, from, next) {
