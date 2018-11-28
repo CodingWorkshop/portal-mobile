@@ -3,7 +3,7 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import Account from './views/Account.vue';
 import NotFound from './views/NotFound.vue';
-
+import mobileIndex from './components/mobile-index.vue';
 Vue.use(Router);
 
 export default new Router({
@@ -41,6 +41,11 @@ export default new Router({
       path: '*',
       name: 'notfound',
       component: NotFound
+    },
+    {
+      path: '/mobileIndex',
+      name: 'mobileIndex',
+      component: mobileIndex
     }
   ]
 });

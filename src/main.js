@@ -5,6 +5,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store/index';
 import VueTouch from 'vue-touch';
+import './style/themes/build-theme.scss';
 //import './registerServiceWorker';
 
 //自定義手勢(連續點擊兩下)
@@ -15,10 +16,13 @@ VueTouch.registerCustomEvent('doubletap', {
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
-Vue.use(VueTouch, { name: 'v-touch' });
+Vue.use(VueTouch, {
+  name: 'v-touch'
+});
 
 import './plugins/iview.js';
-import './plugins/fortAwesome.js';
+import './plugins/fortAwesome-regular.js';
+import './plugins/fortAwesome-solid.js';
 import i18n from './i18n';
 
 router.beforeEach(function(to, from, next) {

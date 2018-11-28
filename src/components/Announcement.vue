@@ -23,11 +23,15 @@ export default {
   }
 };
 </script>
-<style lang="sass" scoped>
-li 
-  font-size: 16px
-  height: 32px
-  background-color: #fd7e147a
-  padding: 2px 0 0 12px
-  text-align: left
+<style lang="scss" scoped>
+ul {
+  list-style: none;
+  li {
+    font-size: 16px;
+    height: 32px;
+    background-color: #fd7e147a;
+    padding: 2px 0 0 12px;
+    text-align: left;
+  }
+}
 </style>

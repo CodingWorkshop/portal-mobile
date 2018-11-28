@@ -1,27 +1,41 @@
 <template>
-    <div class="game-grid">
-      <Carousel loop :dots="'outside'" :arrow="'never'">
-          <CarouselItem v-for="i in 3" :key="i" class="carouse-item">
-            <Row v-for="j in 2" :key="j">
-                <i-col :span="8" v-for="k in 3" :key="k">
-                   <img src="../assets/game.png"><br>
-                   <p>
-                       <span class="text">卡通蛋糕 {{i}}</span>
-                       <span class="icon">
-                           <font-awesome-icon icon="heart" />
-                       </span>
-                   </p>
-                </i-col>
-            </Row>
-          </CarouselItem>
-      </Carousel>
-    </div>
+  <div class="game-grid">
+    <Carousel loop :dots="'outside'" :arrow="'never'">
+      <CarouselItem class="carouse-item">
+        <Row>
+          <game-box
+            v-for="game in gameList"
+            :key="game.index"
+            :name="game.name"
+            :isFavorite="game.isFavorite"
+            :img="game.img"
+          ></game-box>
+        </Row>
+      </CarouselItem>
+    </Carousel>
+  </div>
 </template>
 
 <script>
+import GameBox from '@/components/GameBox.vue';
 export default {
   name: 'GameGrid',
-  components: {}
+  components: {
+    GameBox
+  },
+  data() {
+    return {
+      gameList: []
+    };
+  },
+  mounted: function() {
+    this.axios
+      .get('https://next.json-generator.com/api/json/get/NynTtqEAr')
+      .then(response => {
+        console.log(response);
+        this.gameList = response.ReturnObject;
+      });
+  }
 };
 </script>
 <style lang="sass" scoped>

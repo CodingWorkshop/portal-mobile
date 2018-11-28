@@ -1,0 +1,23 @@
+@import 'base';
+@mixin theme-dark() {
+    $body-bg: #343a40;
+    $header-font: rgb(212, 212, 212);
+    $bar-login-font: #fa5347;
+    $bar-register-font: rgb(196, 196, 196);
+    $title-icon: #d1d0d0;
+    $form-login-btn-bg: #e91e63;
+    $form-login-btn-font: #ffffff;
+    $form-regist-btn-bg: #f44336;
+    $form-regist-btn-font: #ffffff;
+    @include login-base( $body-bg, $header-font, $bar-login-font, $bar-register-font, $title-icon, $form-login-btn-bg, $form-login-btn-font, $form-regist-btn-bg, $form-regist-btn-font);
+}
+
+
+/*$body-bg: #ffffff;
+    $body-font: #fdfdfd;
+    $btn: #8b8ae0;
+    $span: #db3232;
+    $card-font: #ffffff;
+    $card-header-bg: #383838;
+    $card-body-bg: #777575;
+    @include base( $body-bg, $body-font, $btn, $span, $card-font, $card-header-bg, $card-body-bg);*/
