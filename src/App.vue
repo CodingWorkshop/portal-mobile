@@ -19,6 +19,12 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 #app {
   font-family: '微軟正黑體', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -26,6 +32,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   padding-bottom: 50px;
+  height: 100%;
 }
 
 #nav {

@@ -1,9 +1,7 @@
 <template>
-  <v-touch v-on:swiperight="$store.commit('closeDrawerPage','search')">
-    <div>
-      <h1>搜尋遊戲</h1>
-    </div>
-  </v-touch>
+  <div>
+    <h1>搜尋遊戲</h1>
+  </div>
 </template>
 
 <script>
@@ -17,7 +15,4 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  div
-    width: 100%;
-    height: 100%;
 </style>
