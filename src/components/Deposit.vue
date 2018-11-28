@@ -1,5 +1,5 @@
 <template>
-  <div class="all">
+  <div class="sort">
     <i-col span="8" v-for="(i,index) in depositDetail" :key="index" class="icon-btn">
       <a class="icon">
         <font-awesome-icon v-bind:icon="i.icon" /></a>
@@ -56,15 +56,15 @@ export default {
 };
 </script>
 <style lang="sass" scoped>
-  div.all 
-    width: 100%;
-    height: 100%;
-    .icon-btn 
-      margin-bottom: 20px;
-      .icon 
-        background-color: orange;
-        padding: 5px 8px;
-        height: 40px;
-        color: #fff;
-        font-size: 40px;
+.sort
+  padding: 0 15px 0;
+  text-align: center;
+  .icon-btn 
+    margin-bottom: 20px;
+    .icon 
+      background-color: orange;
+      padding: 5px 8px;
+      height: 40px;
+      color: #fff;
+      font-size: 40px;
 </style>

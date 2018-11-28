@@ -6,7 +6,7 @@
         v-bind:name="i.name">
         <v-touch tag="body" v-on:swipeleft="activeKey(index+1,i.name)" 
                 v-on:swiperight="activeKey(index-1,i.name)">
-          <div class="all">
+          <div>
             <keep-alive>
               <component :is="i.name"></component>
             </keep-alive>
@@ -63,16 +63,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  div.all 
-    width: 100%;
-    height: 100%;
-    .ivu-tabs-nav
-      .ivu-tabs-tab
-        &:hover 
-          color: #000 !important;
   h1 
     padding: 10px 0;
     border-bottom: 1px solid #ccc;
-  
-
 </style>

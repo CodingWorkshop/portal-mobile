@@ -101,7 +101,10 @@ export default {
 };
 </script>
 <style lang="sass" scoped>
+div
+  text-align: center;
 .content
-  margin: 50px auto 0;
+  margin-top: 50px;
   width: 100%;
+  text-align: center;
 </style>
