@@ -1,24 +1,23 @@
 <template>
-    <div>
-       <Drawer v-for="list in pageList"
-               :key="list.name"
-               :scrollable="true"
-               :closable="false"
-               width="100"
-               v-model="list.open"
-               @on-close="close(list.name)"
-               :style="{ zIndex: 1000+list.zIndex, position: 'relative' }">
-           <div slot="header">
-              <h1>
-                <Button type="text" @click="$store.commit('closeDrawerPage',list.name)">
-                  <font-awesome-icon icon="angle-left" />
-                </Button>
-                {{list.name}}
-              </h1>
-           </div>
-           <component :is="'drawer-'+list.name"></component>
-       </Drawer>
-    </div>
+  <div>
+    <Drawer v-for="list in pageList" :key="list.name" :scrollable="true"
+      :closable="false" width="100" v-model="list.open" @on-close="close(list.name)"
+      :style="{ zIndex: 1000+list.zIndex, position: 'relative' }">
+      <div slot="header">
+        <v-touch v-on:swiperight="$store.commit('closeDrawerPage',list.name)">
+          <h1>
+            <Button type="text" @click="$store.commit('closeDrawerPage',list.name)">
+              <font-awesome-icon icon="angle-left" />
+            </Button>
+            {{list.name}}
+          </h1>
+        </v-touch>
+      </div>
+      <v-touch tag="body" v-on:swiperight="$store.commit('closeDrawerPage',list.name)">
+        <component :is="'drawer-'+list.name"></component>
+      </v-touch>
+    </Drawer>
+  </div>
 </template>
 
 <script>

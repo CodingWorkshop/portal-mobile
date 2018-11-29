@@ -23,11 +23,6 @@ export default {
     };
   },
   computed: {},
-  mounted: function() {
-    const api = 'https://api.github.com/';
-    this.$http.get(api).then(response => {
-      console.log(response.data);
-    });
-  }
+  mounted: function() {}
 };
 </script>

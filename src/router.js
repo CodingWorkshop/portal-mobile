@@ -16,6 +16,11 @@ export default new Router({
       component: Home
     },
     {
+      path: '/wallet',
+      name: 'wallet',
+      component: () => import('./views/Wallet.vue')
+    },
+    {
       path: '/promotion',
       name: 'promotion',
       // route level code-splitting

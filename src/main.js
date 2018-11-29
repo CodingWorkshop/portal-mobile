@@ -14,11 +14,6 @@ VueTouch.registerCustomEvent('doubletap', {
   taps: 2
 });
 
-//定義swipe全局默認值
-VueTouch.config.swipe = {
-  threshold: 10
-};
-
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
 Vue.use(VueTouch, {
@@ -26,7 +21,8 @@ Vue.use(VueTouch, {
 });
 
 import './plugins/iview.js';
-import './plugins/fortAwesome.js';
+import './plugins/fortAwesome-regular.js';
+import './plugins/fortAwesome-solid.js';
 import i18n from './i18n';
 
 router.beforeEach(function(to, from, next) {

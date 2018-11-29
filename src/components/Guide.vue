@@ -7,7 +7,7 @@
           </Button>
         </i-col>
         <i-col :span="4">
-          <Button type="text" to="/">
+          <Button type="text" to="/wallet">
             <font-awesome-icon class="icon" icon="money-bill-alt" />
             <div>帳務中心</div>
           </Button>
