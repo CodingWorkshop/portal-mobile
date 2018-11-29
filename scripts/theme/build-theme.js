@@ -3,10 +3,10 @@ console.log('Theme build start');
 var fs = require('fs-extra');
 var request = require('request');
 
-const input = process.argv[2];
-const isHttpTheme = process.argv[2].substr(0, 4) === 'http';
+const input = (process.argv[2]) ? process.argv[2] : 'default';
+const isHttpTheme = input.substr(0, 4) === 'http';
 
-// 設置要編譯的 Theme 來源為Http 
+// 設置要編譯的 Theme 來源為Http
 if (isHttpTheme) {
     applyCustomizeTheme(input);
     return;
