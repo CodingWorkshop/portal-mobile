@@ -44,8 +44,9 @@ export default {
   }
 };
 </script>
-<style lang="sass" scoped>
-div.all
+<style lang="less" scoped>
+.all {
   padding: 10px 30px;
   text-align: left;
+}
 </style>

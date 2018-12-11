@@ -1,6 +1,6 @@
 <template>
   <div class="all">
-    <h5>存入帳戶</h5>
+    <h2>存入帳戶</h2>
     <br>
     <Form :model="form" label-position="top">
       <FormItem label="銀行名稱">
@@ -67,7 +67,9 @@ export default {
   }
 };
 </script>
-<style lang="sass" scoped>
-  div.all 
-    padding: 0 30px 10px;
+<style lang="less" scoped>
+.all {
+  padding: 0 30px 10px;
+  text-align: left;
+}
 </style>

@@ -55,16 +55,21 @@ export default {
   }
 };
 </script>
-<style lang="sass" scoped>
-.sort
+<style lang="less" scoped>
+.sort {
   padding: 0 15px 0;
   text-align: center;
-  .icon-btn 
+
+  .icon-btn {
     margin-bottom: 20px;
-    .icon 
+
+    .icon {
       background-color: orange;
       padding: 5px 8px;
       height: 40px;
       color: #fff;
       font-size: 40px;
+    }
+  }
+}
 </style>

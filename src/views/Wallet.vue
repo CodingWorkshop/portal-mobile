@@ -4,8 +4,8 @@
     <tabs v-model="key" size="small">
       <tab-pane v-for="(i,index) in walletDetail" :key="index" v-bind:label="i.label"
         v-bind:name="i.name">
-        <v-touch tag="body" v-on:swipeleft="activeKey(index+1,i.name)" 
-                v-on:swiperight="activeKey(index-1,i.name)">
+        <v-touch tag="body" v-on:swipeleft="activeKey(index+1,i.name)"
+          v-on:swiperight="activeKey(index-1,i.name)">
           <div>
             <keep-alive>
               <component :is="i.name"></component>
@@ -62,8 +62,9 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-  h1 
-    padding: 10px 0;
-    border-bottom: 1px solid #ccc;
+<style lang="less" scoped>
+h1 {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
 </style>

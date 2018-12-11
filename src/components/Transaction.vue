@@ -10,10 +10,8 @@
     <div>
       <Checkbox :indeterminate="indeterminate" :value="checkAll"
         @click.prevent.native="handleCheckAll">全部</Checkbox>
-      <CheckboxGroup v-model="checkAllGroup" 
-                    @on-change="checkAllGroupChange"
-                    v-for="(i,index) in transactionDetail" 
-                    :key="index" style="display:inline;">
+      <CheckboxGroup v-model="checkAllGroup" @on-change="checkAllGroupChange"
+        v-for="(i,index) in transactionDetail" :key="index" style="display:inline;">
         <Checkbox v-bind:label="i.value"></Checkbox>
       </CheckboxGroup>
     </div>
@@ -100,11 +98,14 @@ export default {
   }
 };
 </script>
-<style lang="sass" scoped>
-div
+<style lang="less" scoped>
+div {
   text-align: center;
-.content
-  margin-top: 50px;
-  width: 100%;
-  text-align: center;
+
+  > .content {
+    margin-top: 50px;
+    width: 100%;
+    text-align: center;
+  }
+}
 </style>
