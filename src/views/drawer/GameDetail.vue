@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h1>老虎機</h1>
-    <Button type="primary" @click="$store.commit('openDrawerPage','login')">登入註冊</Button>
+  <div class="game-detail">
+    <img src="https://via.placeholder.com/140x140">
+    <Button type="primary" @click="$store.commit('openDrawerPage','login')" long>登入註冊</Button>
   </div>
 </template>
 
@@ -16,4 +16,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.game-detail
+    text-align: center;
 </style>

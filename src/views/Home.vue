@@ -1,17 +1,17 @@
 <template>
   <div class="home">
     <header-title></header-title>
-      <announcement></announcement>
-      <slide></slide>
-      <game-type></game-type>
-      <subject msg="熱門蛋糕"></subject>
-      <game-grid></game-grid>
-      <subject msg="新進蛋糕"></subject>
-      <game-grid></game-grid>
-      <category title="奶油蛋糕"></category>
-      <category title="草莓蛋糕"></category>
-      <category title="香草蛋糕"></category>
-      <HelloWorld msg="Welcome"/>
+    <announcement></announcement>
+    <slide></slide>
+    <game-type></game-type>
+    <subject msg="熱門蛋糕" type="hot"></subject>
+    <game-grid type="hot"></game-grid>
+    <subject msg="新進蛋糕" type="new"></subject>
+    <game-grid type="new"></game-grid>
+    <category title="奶油蛋糕"></category>
+    <category title="草莓蛋糕"></category>
+    <category title="香草蛋糕"></category>
+    <HelloWorld msg="Welcome"/>
   </div>
 </template>
 

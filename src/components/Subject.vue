@@ -1,16 +1,20 @@
 <template>
-    <div>
-        <p>
-            <span class="text">{{ msg }}</span>
-            <span class="more">更多 ></span>
-        </p>
-    </div>
+  <div>
+    <p>
+      <span class="text">{{ msg }}</span>
+      <span
+        class="more"
+        @click="$store.commit('openDrawerPage','game-list');
+          $store.commit('changeDrawerTitle',{type:'game-list',name:msg,category:type});"
+      >更多 ></span>
+    </p>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'Subject',
-  props: ['msg']
+  props: ['msg', 'type']
 };
 </script>
 <style lang="sass" scoped>

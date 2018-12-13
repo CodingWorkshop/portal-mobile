@@ -21,6 +21,7 @@
 import GameBox from '@/components/GameBox.vue';
 export default {
   name: 'GameGrid',
+  props: ['type'],
   components: {
     GameBox
   },
@@ -34,6 +35,8 @@ export default {
       .get('https://next.json-generator.com/api/json/get/NynTtqEAr')
       .then(response => {
         const data = response.ReturnObject;
+
+        sessionStorage.setItem('GameList_' + this.type, JSON.stringify(data));
         let tempArray = [];
         let chunk_size = 6;
         for (let index = 0; index < data.length; index += chunk_size) {
