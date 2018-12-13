@@ -1,8 +1,8 @@
 <template>
   <i-col :span="8">
     <div>
-      <img :src="img">
-      <Row :type="'flex'" :justify="'center'" class="text-area">
+      <img class="game-img" :src="img">
+      <Row :type="'flex'" :justify="'space-around'" class="text-area">
         <i-col :span="6" class="text">{{name}}</i-col>
         <i-col :span="6" class="icon">
           <font-awesome-icon :icon="[isFavorite ? 'far' : 'fas' , 'heart']"/>
@@ -23,8 +23,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.game-img {
+  width: 100px;
+  height: 100px;
+}
 .text-area {
-  font-size: 1.5em;
+  font-size: 1rem;
   .text {
     text-align: left;
   }

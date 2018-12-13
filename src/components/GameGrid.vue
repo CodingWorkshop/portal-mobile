@@ -1,11 +1,12 @@
 <template>
   <div class="game-grid">
-    <Carousel loop :dots="'outside'" :arrow="'never'">
-      <CarouselItem class="carouse-item">
+    <Spin v-if="!gameList.length"></Spin>
+    <Carousel v-else :dots="'outside'" :arrow="'never'">
+      <CarouselItem class="carouse-item" v-for="(list,i) in gameList" :key="i">
         <Row>
           <game-box
-            v-for="game in gameList"
-            :key="game.index"
+            v-for="(game,i) in list"
+            :key="i"
             :name="game.name"
             :isFavorite="game.isFavorite"
             :img="game.img"
@@ -32,8 +33,14 @@ export default {
     this.axios
       .get('https://next.json-generator.com/api/json/get/NynTtqEAr')
       .then(response => {
-        console.log(response);
-        this.gameList = response.ReturnObject;
+        const data = response.ReturnObject;
+        let tempArray = [];
+        let chunk_size = 6;
+        for (let index = 0; index < data.length; index += chunk_size) {
+          let myChunk = data.slice(index, index + chunk_size);
+          tempArray.push(myChunk);
+        }
+        this.gameList = [].concat(tempArray);
       });
   }
 };
@@ -42,16 +49,16 @@ export default {
 .game-grid
   position: relative;
   z-index: 0;
-.carouse-item
-    background: #fff
-    img
-        width: 120px
-    .text
-        padding: 2px 0 2px 10px
-        float: left
-    .icon
-        padding: 2px 9px 2px 0
-        float: right
-        font-size: 18px
-        color: #fd7e14
+  padding: 10px 0;
+  .carouse-item
+      img
+          width: 120px
+      .text
+          padding: 2px 0 2px 10px
+          float: left
+      .icon
+          padding: 2px 9px 2px 0
+          float: right
+          font-size: 18px
+          color: #fd7e14
 </style>
