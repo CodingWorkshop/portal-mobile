@@ -39,25 +39,15 @@ export default {
   data: function() {
     return {
       key: '',
-      walletDetail: [
-        {
-          label: '在線存款',
-          name: 'Deposit'
-        },
-        {
-          label: '在線取款',
-          name: 'Withdrawal'
-        },
-        {
-          label: '時時返水',
-          name: 'Discount'
-        },
-        {
-          label: '交易紀錄',
-          name: 'Transaction'
-        }
-      ]
+      walletDetail: []
     };
+  },
+  mounted: function() {
+    this.axios
+      .get('https://next.json-generator.com/api/json/get/VkJf2sFJL')
+      .then(response => {
+        this.walletDetail = response.ReturnObject;
+      });
   }
 };
 </script>

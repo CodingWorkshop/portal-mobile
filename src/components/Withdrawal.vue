@@ -28,35 +28,7 @@ export default {
   name: 'Withdrawal',
   data() {
     return {
-      withdrawalDetail: [
-        {
-          value: '公司入款'
-        },
-        {
-          value: '銀聯快捷'
-        },
-        {
-          value: '銀聯掃碼'
-        },
-        {
-          value: 'WAP微信支付'
-        },
-        {
-          value: 'WAP支付寶支付'
-        },
-        {
-          value: 'WAP 京東支付'
-        },
-        {
-          value: 'WAP QQ支付'
-        },
-        {
-          value: '點卡支付'
-        },
-        {
-          value: '站長快速支付'
-        }
-      ],
+      withdrawalDetail: [],
       form: {
         bank: '',
         province: '',
@@ -64,6 +36,13 @@ export default {
         account: ''
       }
     };
+  },
+  mounted: function() {
+    this.axios
+      .get('https://next.json-generator.com/api/json/get/4yQuE2tJU')
+      .then(response => {
+        this.withdrawalDetail = response.ReturnObject;
+      });
   }
 };
 </script>

@@ -31,33 +31,15 @@ export default {
       indeterminate: false,
       checkAll: false,
       checkAllGroup: [],
-      transactionDetail: [
-        {
-          value: '公司入款'
-        },
-        {
-          value: '在線支付'
-        },
-        {
-          value: '在線取款'
-        },
-        {
-          value: '人工存提'
-        },
-        {
-          value: '優惠活動'
-        },
-        {
-          value: '返水'
-        },
-        {
-          value: '時時返水'
-        },
-        {
-          value: '其他'
-        }
-      ]
+      transactionDetail: []
     };
+  },
+  mounted: function() {
+    this.axios
+      .get('https://next.json-generator.com/api/json/get/41-vHhKkU')
+      .then(response => {
+        this.transactionDetail = response.ReturnObject;
+      });
   },
   methods: {
     handleCheckAll() {

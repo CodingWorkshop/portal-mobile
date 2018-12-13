@@ -14,33 +14,18 @@ export default {
   name: 'Discount',
   data() {
     return {
-      columns: [
-        {
-          title: '遊戲名稱',
-          key: 'name'
-        },
-        {
-          title: '流水',
-          key: 'flow'
-        },
-        {
-          title: '返水',
-          key: 'discount'
-        }
-      ],
-      data: [
-        {
-          name: 'John Brown',
-          flow: 157.5,
-          discount: 1.26
-        },
-        {
-          name: 'Jim Green',
-          flow: 122.5,
-          discount: 2.05
-        }
-      ]
+      columns: [],
+      data: []
     };
+  },
+  mounted: function() {
+    this.axios
+      .get('https://next.json-generator.com/api/json/get/4kxeP3F18')
+      .then(response => {
+        console.log(response.ReturnObject);
+        this.columns = response.ReturnObject[0].columns;
+        this.data = response.ReturnObject[0].data;
+      });
   }
 };
 </script>

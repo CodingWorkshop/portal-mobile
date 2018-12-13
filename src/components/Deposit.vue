@@ -13,45 +13,15 @@ export default {
   name: 'Deposit',
   data() {
     return {
-      depositDetail: [
-        {
-          title: '公司入款',
-          icon: 'birthday-cake'
-        },
-        {
-          title: '銀聯快捷',
-          icon: 'gamepad'
-        },
-        {
-          title: '銀聯掃碼',
-          icon: 'money-bill-alt'
-        },
-        {
-          title: 'WAP微信支付',
-          icon: 'gift'
-        },
-        {
-          title: 'WAP支付寶支付',
-          icon: 'bullhorn'
-        },
-        {
-          title: 'WAP 京東支付',
-          icon: 'gift'
-        },
-        {
-          title: 'WAP QQ支付',
-          icon: 'heart'
-        },
-        {
-          title: '點卡支付',
-          icon: 'gift'
-        },
-        {
-          title: '站長快速支付',
-          icon: 'gift'
-        }
-      ]
+      depositDetail: []
     };
+  },
+  mounted: function() {
+    this.axios
+      .get('https://next.json-generator.com/api/json/get/NkyoHhKy8')
+      .then(response => {
+        this.depositDetail = response.ReturnObject;
+      });
   }
 };
 </script>
