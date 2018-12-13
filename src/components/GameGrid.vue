@@ -31,8 +31,12 @@ export default {
     };
   },
   mounted: function() {
+    let url = 'NynTtqEAr';
+    if (this.type === 'hot') {
+      url = '4JUPPpc1L';
+    }
     this.axios
-      .get('https://next.json-generator.com/api/json/get/NynTtqEAr')
+      .get('https://next.json-generator.com/api/json/get/' + url)
       .then(response => {
         const data = response.ReturnObject;
 
