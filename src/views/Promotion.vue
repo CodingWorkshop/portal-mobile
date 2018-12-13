@@ -32,62 +32,19 @@ export default {
       promotion: 0,
       list: [
         {
-          label: '所有優惠',
-          value: 0,
-          promot: [
-            'a1',
-            'a2',
-            'a3',
-            'a4',
-            'b1',
-            'b2',
-            'b3',
-            'b4',
-            'b5',
-            'b6',
-            'b7',
-            'c1',
-            'd1',
-            'd2',
-            'd3',
-            'e1',
-            'e2',
-            'f1',
-            'g1'
-          ]
-        },
-        {
-          label: '存款優惠',
-          value: 1,
-          promot: ['b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7']
-        },
-        {
-          label: '取款優惠',
-          value: 2,
-          promot: ['c1']
-        },
-        {
-          label: '電子優惠',
-          value: 3,
-          promot: ['d1', 'd2', 'd3']
-        },
-        {
-          label: '年節優惠',
-          value: 4,
-          promot: ['e1', 'e2']
-        },
-        {
-          label: '中秋優惠',
-          value: 5,
-          promot: ['f1']
-        },
-        {
-          label: '聖誕優惠',
-          value: 6,
-          promot: ['g1']
+          label: '',
+          value: '',
+          promot: []
         }
       ]
     };
+  },
+  mounted: function() {
+    this.axios
+      .get('https://next.json-generator.com/api/json/get/41s54pKJU')
+      .then(response => {
+        this.list = response.ReturnObject;
+      });
   }
 };
 </script>
