@@ -1,14 +1,20 @@
 <template>
   <div>
-    <Carousel loop autoplay :height="200">
-      <CarouselItem v-for="i in demo1_list" :key="i.img">
-        <Row>
-          <i-col span="24">
-            <img v-bind:src="i.img" class="demo-carousel" />
-          </i-col>
-        </Row>
-      </CarouselItem>
-    </Carousel>
+    <v-touch
+      tag="body"
+      v-on:swipeleft="changeSlide(index+1)"
+      v-on:swiperight="changeSlide(index-1)"
+    >
+      <Carousel v-model="index" loop autoplay :height="200">
+        <CarouselItem v-for="i in demo1_list" :key="i.img">
+          <Row>
+            <i-col span="24">
+              <img v-bind:src="i.img" class="demo-carousel">
+            </i-col>
+          </Row>
+        </CarouselItem>
+      </Carousel>
+    </v-touch>
   </div>
 </template>
 
@@ -29,8 +35,15 @@ export default {
   components: {},
   data() {
     return {
-      demo1_list: demoList
+      demo1_list: demoList,
+      index: 0
     };
+  },
+  methods: {
+    changeSlide: function(count) {
+      this.index =
+        count >= 0 && count < this.demo1_list.length ? count : this.index;
+    }
   }
 };
 </script>

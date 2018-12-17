@@ -1,14 +1,25 @@
 <template>
   <div class="game-grid">
-    <Spin v-if="!gameList.length"></Spin>
-    <Carousel v-else :dots="'outside'" :arrow="'never'">
-      <CarouselItem class="carouse-item" v-for="(list,i) in gameList" :key="i">
-        <Row>
-          <game-box v-for="(game,i) in list" :key="i" :name="game.name"
-            :isFavorite="game.isFavorite" :img="game.img"></game-box>
-        </Row>
-      </CarouselItem>
-    </Carousel>
+    <v-touch
+      tag="body"
+      v-on:swipeleft="changeSlide(index+1)"
+      v-on:swiperight="changeSlide(index-1)"
+    >
+      <Spin v-if="!gameList.length"></Spin>
+      <Carousel v-model="index" v-else :dots="'outside'" :arrow="'never'">
+        <CarouselItem class="carouse-item" v-for="(list,i) in gameList" :key="i">
+          <Row>
+            <game-box
+              v-for="(game,i) in list"
+              :key="i"
+              :name="game.name"
+              :isFavorite="game.isFavorite"
+              :img="game.img"
+            ></game-box>
+          </Row>
+        </CarouselItem>
+      </Carousel>
+    </v-touch>
   </div>
 </template>
 
@@ -22,8 +33,15 @@ export default {
   },
   data() {
     return {
-      gameList: []
+      gameList: [],
+      index: 0
     };
+  },
+  methods: {
+    changeSlide: function(count) {
+      this.index =
+        count >= 0 && count < this.gameList.length ? count : this.index;
+    }
   },
   mounted: function() {
     let url = 'NynTtqEAr';
