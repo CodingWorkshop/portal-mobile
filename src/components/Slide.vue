@@ -1,10 +1,6 @@
 <template>
   <div>
-    <v-touch
-      tag="body"
-      v-on:swipeleft="changeSlide(index+1)"
-      v-on:swiperight="changeSlide(index-1)"
-    >
+    <v-touch v-on:swipeleft="changeSlide(index+1)" v-on:swiperight="changeSlide(index-1)">
       <Carousel v-model="index" loop autoplay :height="200">
         <CarouselItem v-for="i in demo1_list" :key="i.img">
           <Row>
