@@ -5,7 +5,7 @@
         class="game-img"
         :src="img"
         @click="$store.commit('openDrawerPage','game-detail');
-      $store.commit('changeDrawerTitle',{type:'game-detail',name:name,category:name});"
+      $store.commit('changeDrawerTitle',{type:'game-detail',name:name,gameId:name});"
       >
       <Row :type="'flex'" :justify="'space-around'" class="text-area">
         <i-col :span="12" class="text">{{name}}</i-col>
