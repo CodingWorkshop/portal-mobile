@@ -10,7 +10,8 @@ export default {
         zIndex: 0
       })
     ),
-    gameListCatrgory: ''
+    gameListCatrgory: '',
+    gameId: ''
   },
   mutations: {
     openDrawerPage(state, payload) {
@@ -32,7 +33,12 @@ export default {
       });
     },
     changeDrawerTitle(state, payload) {
-      state.gameListCatrgory = payload.category;
+      if (payload.gameId) {
+        state.gameId = payload.gameId;
+      }
+      if (payload.category) {
+        state.gameListCatrgory = payload.category;
+      }
       state.pageList.some(l => {
         if (l.type === payload.type) {
           l.name = payload.name;

@@ -1,13 +1,8 @@
 <template>
   <div>
     <Row>
-      <game-box
-        v-for="(game,i) in setList"
-        :key="i"
-        :name="game.name"
-        :isFavorite="game.isFavorite"
-        :img="game.img"
-      ></game-box>
+      <game-box v-for="(game,i) in setList" :key="i" :name="game.name"
+        :isFavorite="game.isFavorite" :img="game.img"></game-box>
     </Row>
   </div>
 </template>
@@ -17,7 +12,9 @@ import GameBox from '@/components/GameBox.vue';
 import { mapState } from 'vuex';
 export default {
   name: 'DrawerGameList',
-  components: { GameBox },
+  components: {
+    GameBox
+  },
   data: function() {
     return {
       list: []
@@ -36,5 +33,5 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
+<style lang="less" scoped>
 </style>

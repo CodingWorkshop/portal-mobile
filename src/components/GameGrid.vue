@@ -4,13 +4,8 @@
     <Carousel v-else :dots="'outside'" :arrow="'never'">
       <CarouselItem class="carouse-item" v-for="(list,i) in gameList" :key="i">
         <Row>
-          <game-box
-            v-for="(game,i) in list"
-            :key="i"
-            :name="game.name"
-            :isFavorite="game.isFavorite"
-            :img="game.img"
-          ></game-box>
+          <game-box v-for="(game,i) in list" :key="i" :name="game.name"
+            :isFavorite="game.isFavorite" :img="game.img"></game-box>
         </Row>
       </CarouselItem>
     </Carousel>
@@ -52,20 +47,28 @@ export default {
   }
 };
 </script>
-<style lang="sass" scoped>
-.game-grid
+<style lang="less" scoped>
+.game-grid {
   position: relative;
   z-index: 0;
   padding: 10px 0;
-  .carouse-item
-      img
-          width: 120px
-      .text
-          padding: 2px 0 2px 10px
-          float: left
-      .icon
-          padding: 2px 9px 2px 0
-          float: right
-          font-size: 18px
-          color: #fd7e14
+
+  .carouse-item {
+    img {
+      width: 120px;
+    }
+
+    .text {
+      padding: 2px 0 2px 10px;
+      float: left;
+    }
+
+    .icon {
+      padding: 2px 9px 2px 0;
+      float: right;
+      font-size: 18px;
+      color: #fd7e14;
+    }
+  }
+}
 </style>

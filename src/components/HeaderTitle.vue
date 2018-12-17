@@ -5,14 +5,10 @@
     </i-col>
     <i-col class="icons" span="18">
       <Button type="text" @click="$store.commit('openDrawerPage','search')">
-        <font-awesome-icon class="icon" icon="search"/>
+        <font-awesome-icon class="icon" icon="search" />
       </Button>
       <Button type="text">
-        <font-awesome-icon
-          class="icon"
-          icon="heart"
-          @click="$store.commit('openDrawerPage','favorite')"
-        />
+        <font-awesome-icon class="icon" icon="heart" @click="$store.commit('openDrawerPage','favorite')" />
       </Button>
     </i-col>
   </Row>
@@ -24,18 +20,27 @@ export default {
   components: {}
 };
 </script>
-<style lang="sass" scoped>
-.row
-    background-color: #fff
-    border-bottom: 4px solid #fd7e14
-    .logo
-        text-align: left
-        img
-            width: 120px
-    .icons
-        text-align: right
-        .icon
-            margin: 5px
-            font-size: 26px
-            color: #fd7e14
+<style lang="less" scoped>
+.row {
+  background-color: #fff;
+  border-bottom: 4px solid #fd7e14;
+
+  .logo {
+    text-align: left;
+
+    img {
+      width: 120px;
+    }
+  }
+
+  .icons {
+    text-align: right;
+
+    .icon {
+      margin: 5px;
+      font-size: 26px;
+      color: #fd7e14;
+    }
+  }
+}
 </style>

@@ -55,7 +55,8 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-  Form 
-    width: 50%
+<style lang="less" scoped>
+form {
+  width: 50%;
+}
 </style>
