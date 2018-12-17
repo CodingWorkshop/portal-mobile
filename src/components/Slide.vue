@@ -1,15 +1,15 @@
 <template>
-    <div>
-      <Carousel loop autoplay :height="200">
-          <CarouselItem v-for="i in demo1_list" :key="i.img">
-            <Row>
-                <i-col span="24">
-                   <img v-bind:src="i.img" class="demo-carousel"/>
-                </i-col>
-            </Row>
-          </CarouselItem>
-      </Carousel>
-    </div>
+  <div>
+    <Carousel loop autoplay :height="200">
+      <CarouselItem v-for="i in demo1_list" :key="i.img">
+        <Row>
+          <i-col span="24">
+            <img v-bind:src="i.img" class="demo-carousel" />
+          </i-col>
+        </Row>
+      </CarouselItem>
+    </Carousel>
+  </div>
 </template>
 
 <script>
@@ -34,7 +34,8 @@ export default {
   }
 };
 </script>
-<style lang="sass" scoped>
-img
+<style lang="less" scoped>
+img {
   width: 100%;
+}
 </style>

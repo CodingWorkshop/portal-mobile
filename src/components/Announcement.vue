@@ -1,12 +1,12 @@
 <template>
-    <div>
-        <ul>
-            <li v-for="i in asyncCount" :key="i">
-                <font-awesome-icon icon="bullhorn" />
-                即日起 任何品項的【{{i}}】通通88折起
-            </li>
-        </ul>
-    </div>
+  <div>
+    <ul>
+      <li v-for="i in asyncCount" :key="i">
+        <font-awesome-icon icon="bullhorn" />
+        即日起 任何品項的【{{i}}】通通88折起
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -23,9 +23,10 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 ul {
   list-style: none;
+
   li {
     font-size: 16px;
     height: 32px;

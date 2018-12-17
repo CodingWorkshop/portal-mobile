@@ -34,11 +34,11 @@
       <button class="btn col mt-2 ml-f-btn-regist">忘記密碼?</button>
     </div>
   </div>
-  
+
 </template>
 
 <script lang="js">
-  export default  {
+  export default {
     name: 'mobile-index',
     props: [],
     mounted() {
@@ -55,45 +55,54 @@
     computed: {
 
     }
-}
+  }
+
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="less">
 .mobile-login {
   background-color: #ffffff;
   font-family: Microsoft JhengHei;
   height: 666px;
+
   .ml-header {
     padding: 10px;
+
     span {
       color: rgb(141, 141, 141);
       font-size: 18px;
       font-weight: bold;
     }
   }
+
   .ml-bar {
     font-size: 15px;
+
     .ml-b-login {
       font-weight: bold;
       border-bottom: 2px solid;
       color: rgb(243, 83, 123);
     }
+
     .ml-b-regist {
       font-weight: bold;
       border-bottom: 2px solid;
       color: rgb(196, 196, 196);
     }
   }
+
   .ml-title-icon {
     color: rgb(196, 196, 196);
     font-size: 120px;
   }
+
   .ml-form {
     input {
       border-radius: 5px;
       background-color: #ffffff;
       color: #000000;
     }
+
     .ml-f-btn-login {
       background-color: rgb(243, 83, 123);
       color: #ffffff;
@@ -101,6 +110,7 @@
       border: rgb(243, 83, 123);
       border-radius: 7px;
     }
+
     .ml-f-btn-regist {
       background-color: rgb(247, 126, 156);
       color: #ffffff;
@@ -110,6 +120,7 @@
     }
   }
 }
+
 /*.mobile-header{
     background-color: #FFFFFF;
     color: rgb(243, 83, 123);

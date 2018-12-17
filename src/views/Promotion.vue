@@ -12,13 +12,11 @@
         {{i.label}}
       </Option>
     </Select>
-    <div>
-      <Card v-for="(i,index) in list[this.promotion].promot" :key="index" class="card">
-        <div>
-          <h3>優惠 {{i}}</h3>
-        </div>
-      </Card>
-    </div>
+    
+      <div>
+        <img v-for="(i,index) in list[this.promotion].promot" :key="index" :src="i" />
+      </div>
+
   </div>
 </template>
 
@@ -28,12 +26,11 @@ export default {
   methods: {},
   data: function() {
     return {
-      key: 0,
       promotion: 0,
       list: [
         {
-          label: '',
-          value: '',
+          label: '所有優惠',
+          value: 0,
           promot: []
         }
       ]
@@ -71,8 +68,8 @@ div.all {
     margin: 5px;
   }
 
-  .card {
-    background-color: #ccc;
+  img {
+    width: 100%;
   }
 }
 </style>
