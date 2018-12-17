@@ -4,11 +4,15 @@
       <img alt="Cake logo" src="../assets/cakeLogo.png">
     </i-col>
     <i-col class="icons" span="18">
-      <Button type="text" @click="$store.commit('openDrawerPage','search')">
-        <font-awesome-icon class="icon" icon="search" />
+      <Button type="text" @click="$store.commit('openDrawerPage',{type:'search'})">
+        <font-awesome-icon class="icon" icon="search"/>
       </Button>
       <Button type="text">
-        <font-awesome-icon class="icon" icon="heart" @click="$store.commit('openDrawerPage','favorite')" />
+        <font-awesome-icon
+          class="icon"
+          icon="heart"
+          @click="$store.commit('openDrawerPage',{type:'favorite'})"
+        />
       </Button>
     </i-col>
   </Row>

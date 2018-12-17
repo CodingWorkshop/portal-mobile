@@ -28,7 +28,9 @@ import i18n from './i18n';
 router.beforeEach(function(to, from, next) {
   const requiredLogin = to.meta.requiredLogin || false;
   if (requiredLogin && !store.state.login.loginStatus) {
-    store.commit('openDrawerPage', 'login');
+    store.commit('openDrawerPage', {
+      type: 'login'
+    });
     store.commit('recordDestinationPage', to.path);
   } else {
     next();

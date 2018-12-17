@@ -2,9 +2,13 @@
   <div>
     <p>
       <span class="text">{{ msg }}</span>
-      <span class="more" @click="$store.commit('openDrawerPage','game-list');
-          $store.commit('changeDrawerTitle',{type:'game-list',name:msg,category:type});">更多
-        ></span>
+      <span
+        class="more"
+        @click="$store.commit('openDrawerPage',{type:'game-list',name:msg,category:type});"
+      >
+        更多
+        >
+      </span>
     </p>
   </div>
 </template>
