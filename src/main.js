@@ -1,11 +1,11 @@
-import Vue from 'vue';
+﻿import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import App from './App.vue';
 import router from './router';
 import store from './store/index';
 import VueTouch from 'vue-touch';
-import './style/themes/build-theme.scss';
+import './style/theme/custom-theme.less';
 //import './registerServiceWorker';
 
 //自定義手勢(連續點擊兩下)
