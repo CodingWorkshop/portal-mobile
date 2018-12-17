@@ -1,10 +1,6 @@
 <template>
   <div class="game-grid">
-    <v-touch
-      tag="body"
-      v-on:swipeleft="changeSlide(index+1)"
-      v-on:swiperight="changeSlide(index-1)"
-    >
+    <v-touch v-on:swipeleft="changeSlide(index+1)" v-on:swiperight="changeSlide(index-1)">
       <Spin v-if="!gameList.length"></Spin>
       <Carousel v-model="index" v-else :dots="'outside'" :arrow="'never'">
         <CarouselItem class="carouse-item" v-for="(list,i) in gameList" :key="i">

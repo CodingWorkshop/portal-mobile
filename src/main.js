@@ -18,7 +18,9 @@ Vue.use(VueAxios, axios);
 Vue.use(VueTouch, {
   name: 'v-touch'
 });
-
+VueTouch.config.swipe = {
+  direction: 'horizontal'
+};
 import './plugins/iview.js';
 import './plugins/fortAwesome-regular.js';
 import './plugins/fortAwesome-solid.js';
