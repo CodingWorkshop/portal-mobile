@@ -1,12 +1,15 @@
 <template>
   <i-col :span="8">
     <div>
-      <img class="game-img" :src="img" @click="$store.commit('openDrawerPage','game-detail');
-      $store.commit('changeDrawerTitle',{type:'game-detail',name:name,gameId:name});">
+      <img
+        class="game-img"
+        :src="img"
+        @click="$store.commit('openDrawerPage',{type:'game-detail',name:name,gameId:name})"
+      >
       <Row :type="'flex'" :justify="'space-around'" class="text-area">
         <i-col :span="12" class="text">{{name}}</i-col>
         <i-col :span="12" class="icon">
-          <font-awesome-icon :icon="[isFavorite ? 'far' : 'fas' , 'heart']" />
+          <font-awesome-icon :icon="[isFavorite ? 'far' : 'fas' , 'heart']"/>
         </i-col>
       </Row>
     </div>

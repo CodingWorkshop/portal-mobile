@@ -15,11 +15,16 @@ export default {
   },
   mutations: {
     openDrawerPage(state, payload) {
+      state.gameId = payload.gameId ? payload.gameId : state.gameId;
+      state.gameListCatrgory = payload.category
+        ? payload.category
+        : state.gameListCatrgory;
       state.pageList.some(l => {
-        if (l.type === payload) {
+        if (l.type === payload.type) {
           state.zIndexCounter++;
           l.zIndex = state.zIndexCounter;
           l.open = true;
+          l.name = payload.name ? payload.name : l.name;
           return true;
         }
       });
@@ -28,20 +33,6 @@ export default {
       state.pageList.some(l => {
         if (l.type === payload) {
           l.open = false;
-          return true;
-        }
-      });
-    },
-    changeDrawerTitle(state, payload) {
-      if (payload.gameId) {
-        state.gameId = payload.gameId;
-      }
-      if (payload.category) {
-        state.gameListCatrgory = payload.category;
-      }
-      state.pageList.some(l => {
-        if (l.type === payload.type) {
-          l.name = payload.name;
           return true;
         }
       });
