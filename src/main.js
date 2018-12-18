@@ -5,7 +5,6 @@ import App from './App.vue';
 import router from './router';
 import store from './store/index';
 import VueTouch from 'vue-touch';
-//import './registerServiceWorker';
 
 //自定義手勢(連續點擊兩下)
 VueTouch.registerCustomEvent('doubletap', {
