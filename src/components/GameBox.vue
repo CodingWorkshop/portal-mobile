@@ -28,8 +28,8 @@ export default {
 </script>
 <style lang="less" scoped>
 .game-img {
-  width: 100px;
-  height: 100px;
+  max-width: 95%;
+  max-height: 95%;
 }
 
 .text-area {

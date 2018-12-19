@@ -1,8 +1,13 @@
 <template>
   <div>
     <Row>
-      <game-box v-for="(game,i) in setList" :key="i" :name="game.name"
-        :isFavorite="game.isFavorite" :img="game.img"></game-box>
+      <game-box
+        v-for="(game,i) in setList"
+        :key="i"
+        :name="game.name"
+        :isFavorite="game.isFavorite"
+        :img="game.img"
+      ></game-box>
     </Row>
   </div>
 </template>
