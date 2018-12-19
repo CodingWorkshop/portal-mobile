@@ -82,9 +82,26 @@ axios.interceptors.response.use(
   }
 );
 
+function loadLangs() {
+  axios.get('https://next.json-generator.com/api/json/get/VJWKeCGlU').then(
+    response => {
+      const languages = response.ReturnObject;
+      Object.keys(languages).forEach(i => {
+        i18n.setLocaleMessage(i, languages[i]);
+      });
+    },
+    err => {
+      alert(err);
+    }
+  );
+}
+
 new Vue({
   router,
   store,
   i18n,
+  created: function() {
+    loadLangs();
+  },
   render: h => h(App)
 }).$mount('#app');

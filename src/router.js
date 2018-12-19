@@ -35,7 +35,7 @@ export default new Router({
       name: 'account',
       component: Account,
       meta: {
-        requiredLogin: true
+        //requiredLogin: true
       }
     },
     {
