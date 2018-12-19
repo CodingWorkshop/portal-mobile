@@ -66,6 +66,7 @@ export default {
   position: relative;
   z-index: 0;
   padding: 10px 0;
+  height: 300px;
 
   .carouse-item {
     img {
