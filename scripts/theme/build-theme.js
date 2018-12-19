@@ -1,10 +1,15 @@
-// import { AllTheme } from 'ic-theme-relation'
 var fs = require('fs-extra')
 var request = require('request')
 
 /*
     default theme source : https://next.json-generator.com/api/json/get/4kJ9EIlCr
     test theme source : https://next.json-generator.com/api/json/get/Vk_GCJXe8
+
+    ex.1
+    >> npm run theme default
+
+    ex.2
+    >> npm run theme https://next.json-generator.com/api/json/get/Vk_GCJXe8
 */
 
 const DEFAULT_THEME_SORUCE = 'https://next.json-generator.com/api/json/get/4kJ9EIlCr';
