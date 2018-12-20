@@ -20,7 +20,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-@import '../style/theme/_variables.less';
+@import '../style/variables.less';
 div {
   width: 100%;
   background-color: @primary-color;
