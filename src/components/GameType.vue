@@ -1,13 +1,21 @@
 <template>
   <div>
     <Affix :offset-top="0">
-      <Row>
-        <i-col :span="4" class="box1-item" v-for="(i, index) in asyncCount"
-          :key="index">
-          <font-awesome-icon class="icon" v-bind:icon="i.icon" /><br>
-          <span>{{i.name}}</span>
-        </i-col>
-      </Row>
+      <div class="scroll">
+        <div class="row" :style="{width:rowWidth+'px'}">
+          <div
+            :span="5"
+            class="item"
+            v-for="(i, index) in items"
+            :key="index"
+            :style="{width:itemWidth+'px'}"
+          >
+            <font-awesome-icon class="icon fa-3x fa-fw" v-bind:icon="i.icon"/>
+            <br>
+            <span>{{i.name}}</span>
+          </div>
+        </div>
+      </div>
     </Affix>
   </div>
 </template>
@@ -18,47 +26,51 @@ export default {
   components: {},
   data: function() {
     return {
-      asyncCount: [
-        {
-          name: '麵包',
-          icon: 'birthday-cake'
-        },
-        {
-          name: '蛋糕',
-          icon: 'gamepad'
-        },
-        {
-          name: '禮盒',
-          icon: 'money-bill-alt'
-        },
-        {
-          name: '餐盒',
-          icon: 'gift'
-        },
-        {
-          name: '點心',
-          icon: 'gift'
-        },
-        {
-          name: '茶會',
-          icon: 'gift'
-        }
-      ]
+      items: [],
+      rowWidth: null,
+      itemWidth: null
     };
+  },
+  mounted: function() {
+    this.itemWidth = screen.width / 4;
+    this.axios
+      .get('https://next.json-generator.com/api/json/get/Ek2ac14xU')
+      .then(response => {
+        this.items = response.ReturnObject;
+        this.rowWidth = this.itemWidth * this.items.length;
+      });
   }
 };
 </script>
 
 <style lang="less" scoped>
-.box1-item {
-  background-color: #fff;
-  border-right: 1px solid #ccc;
-  text-align: center;
-  color: rgba(255, 122, 11, 0.69);
+.scroll {
+  overflow: auto;
+  text-align: left;
+  .row {
+    height: 80px;
+    .item {
+      position: relative;
+      display: inline-block;
+      text-align: center;
+      color: rgba(255, 122, 11, 0.69);
+      background: #fff;
 
-  .icon {
-    font-size: 40px;
-    margin: 10px auto;
+      &:not(:last-child):after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 50%;
+        background: #d4d4d4;
+        top: 30%;
+        right: 0;
+        -webkit-box-shadow: 0px 0px 5px 0px #d4d4d4;
+        box-shadow: 0px 0px 5px 0px #d4d4d4;
+      }
+      .icon {
+        margin: 10px auto;
+      }
+    }
   }
 }
 </style>
