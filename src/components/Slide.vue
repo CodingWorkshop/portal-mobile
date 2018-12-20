@@ -2,10 +2,10 @@
   <div>
     <v-touch v-on:swipeleft="changeSlide(index+1)" v-on:swiperight="changeSlide(index-1)">
       <Carousel v-model="index" loop autoplay :height="200">
-        <CarouselItem v-for="i in demo1_list" :key="i.img">
+        <CarouselItem v-for="(list,i) in demo1_list" :key="i">
           <Row>
             <i-col span="24">
-              <img v-bind:src="i.img" class="demo-carousel">
+              <img v-bind:src="list.img" class="demo-carousel">
             </i-col>
           </Row>
         </CarouselItem>
@@ -16,9 +16,9 @@
 
 <script>
 const imgList = [
-  'https://goo.gl/YTjG8H',
-  'https://goo.gl/CdqRQ2',
-  'https://goo.gl/PC8Xto'
+  'https://via.placeholder.com/300x200',
+  'https://via.placeholder.com/300x200',
+  'https://via.placeholder.com/300x200'
 ];
 
 const demoList = imgList.map(one => ({

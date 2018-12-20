@@ -11,7 +11,6 @@
     <category title="奶油蛋糕"></category>
     <category title="草莓蛋糕"></category>
     <category title="香草蛋糕"></category>
-    <HelloWorld msg="Welcome"/>
   </div>
 </template>
 
@@ -23,12 +22,10 @@ import GameType from '@/components/GameType.vue';
 import Subject from '@/components/Subject.vue';
 import GameGrid from '@/components/GameGrid.vue';
 import Category from '@/components/Category.vue';
-import HelloWorld from '@/components/HelloWorld.vue';
 
 export default {
   name: 'home',
   components: {
-    HelloWorld,
     HeaderTitle,
     Announcement,
     Slide,

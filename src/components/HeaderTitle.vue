@@ -1,7 +1,7 @@
 <template>
   <Row class="row">
     <i-col class="logo" span="6">
-      <img alt="Cake logo" src="../assets/cakeLogo.png">
+      <img alt="Cake logo" src="https://via.placeholder.com/120x50">
     </i-col>
     <i-col class="icons" span="18">
       <Button type="text" @click="$store.commit('openDrawerPage',{type:'search'})">
