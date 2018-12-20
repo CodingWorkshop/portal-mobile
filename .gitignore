@@ -25,3 +25,4 @@ yarn.lock
 
 # Generated Custom Style File
 /src/style/custom.less
+/src/style/custom.css

@@ -1,4 +1,5 @@
 const fs = require('fs-extra');
+const path = require('path');
 const request = require('request');
 const prettier = require("prettier");
 
@@ -18,38 +19,46 @@ const DEFAULT_THEME_SORUCE =
 const themeHttpSource = (process.argv[2] === 'default') ? DEFAULT_THEME_SORUCE :
   process.argv[2]
 
+const variablesStylePath = path.join(process.cwd(), 'src', 'style',
+  'variables.less');
+
+const customStylePath = path.join(process.cwd(), 'src', 'style',
+  'custom.less');
+
 request.get(themeHttpSource, (error, callback, res) => {
 
   if (error) {
     console.log(`Build Fail : source error ! ${themeHttpSource}`);
-    return;
   }
 
+  fs.writeFile(
+      customStylePath,
+      formatCustomTheme(res),
+      'utf8'
+    )
+    .then(() => console.log(`Build Success !!!`))
+    .catch(() => console.log('Build Fail : write file fail !'));
+
+  fs.readFile(
+      variablesStylePath
+    ).then(variablesFile => fs.writeFile(
+      variablesStylePath,
+      `${variablesFile}`.replace(/\/\/ /, '')))
+    .catch(err => console.log(
+      `[ERROR]:Build Main Style Error - ${err}`))
+
+})
+
+function formatCustomTheme(res) {
   let themeColor = '';
   try {
     themeColor = JSON.parse(res).themeColor;
   } catch (error) {
     console.log(res, error);
     console.log(`Build Fail : themeColor undefined !`);
-    return;
+    return ``;
   }
 
-  themeColor = formatCustomTheme(themeColor);
-  fs.writeFile(
-      'src/style/custom.less',
-      themeColor,
-      'utf8'
-    )
-    .catch(() => console.log('Build Fail : write file fail !'))
-    .then(() => console.log(`Build Success !!!`));
-
-  // fs.readFile(
-  //   'src/style/theme/_variables.less'
-  // )
-
-})
-
-function formatCustomTheme(themeColor) {
   return prettier.format(themeColor, {
     parser: 'less'
   });
