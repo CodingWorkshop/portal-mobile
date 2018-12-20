@@ -19,35 +19,49 @@ const DEFAULT_THEME_SORUCE =
 const themeHttpSource = (process.argv[2] === 'default') ? DEFAULT_THEME_SORUCE :
   process.argv[2]
 
-const variablesStylePath = path.join(process.cwd(), 'src', 'style',
-  'variables.less');
+const variablesStylePath = path.join(
+  process.cwd(),
+  'src',
+  'style',
+  'variables.less'
+);
 
-const customStylePath = path.join(process.cwd(), 'src', 'style',
-  'custom.less');
+const customStylePath = path.join(
+  process.cwd(),
+  'src',
+  'style',
+  'custom.less'
+);
 
 request.get(themeHttpSource, (error, callback, res) => {
 
   if (error) {
     console.log(`Build Fail : source error ! ${themeHttpSource}`);
   }
-
-  fs.writeFile(
-      customStylePath,
-      formatCustomTheme(res),
-      'utf8'
-    )
+  generateCustomLess(res)
+    .then(() => addCustomLess())
     .then(() => console.log(`Build Success !!!`))
-    .catch(() => console.log('Build Fail : write file fail !'));
+    .catch(err => console.log(
+      `[ERROR]:Build Fail : write file fail ! ${err}`));
+})
 
-  fs.readFile(
+function generateCustomLess(res) {
+  return fs.writeFile(
+    customStylePath,
+    formatCustomTheme(res),
+    'utf8'
+  );
+}
+
+function addCustomLess() {
+  return fs.readFile(
       variablesStylePath
     ).then(variablesFile => fs.writeFile(
       variablesStylePath,
       `${variablesFile}`.replace(/\/\/ /, '')))
     .catch(err => console.log(
-      `[ERROR]:Build Main Style Error - ${err}`))
-
-})
+      `[ERROR]:Build Main Style Error - ${err}`));
+}
 
 function formatCustomTheme(res) {
   let themeColor = '';
