@@ -16,9 +16,9 @@
 
 <script>
 const imgList = [
-  'https://goo.gl/YTjG8H',
-  'https://goo.gl/CdqRQ2',
-  'https://goo.gl/PC8Xto'
+  'https://via.placeholder.com/300x200',
+  'https://via.placeholder.com/300x200',
+  'https://via.placeholder.com/300x200'
 ];
 
 const demoList = imgList.map(one => ({
