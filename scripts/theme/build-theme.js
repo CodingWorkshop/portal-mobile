@@ -36,12 +36,16 @@ request.get(themeHttpSource, (error, callback, res) => {
 
   themeColor = formatCustomTheme(themeColor);
   fs.writeFile(
-      'src/style/theme/_custom.less',
+      'src/style/custom.less',
       themeColor,
       'utf8'
     )
     .catch(() => console.log('Build Fail : write file fail !'))
     .then(() => console.log(`Build Success !!!`));
+
+  // fs.readFile(
+  //   'src/style/theme/_variables.less'
+  // )
 
 })
 
