@@ -24,14 +24,16 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+@import '../style/base.less';
 .announcement {
   position: relative;
-  background-color: #ffc18d;
+  background-color: @announcement-bg;
   .icon {
     position: absolute;
     top: 4px;
     left: 5px;
     z-index: 1;
+    color: @primary-color;
   }
   .marquee {
     margin-left: 40px;

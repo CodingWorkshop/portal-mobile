@@ -27,6 +27,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+@import '../style/base.less';
 .game-img {
   max-width: 95%;
   max-height: 95%;
@@ -45,6 +46,7 @@ export default {
 
   .icon {
     text-align: center;
+    color: @primary-color;
   }
 }
 </style>

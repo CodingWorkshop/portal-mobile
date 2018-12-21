@@ -4,7 +4,8 @@
     <div class="scroll">
       <div class="box1">
         <div class="box1-item" v-for="(i, index) in asyncCount" :key="index">
-          <img src="../assets/cake.png"><br>
+          <img src="../assets/cake.png">
+          <br>
           <span>{{i.name}}</span>
         </div>
       </div>
@@ -51,14 +52,16 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '../style/base.less';
 .outer {
-  border-top: 5px solid rgb(232, 232, 232);
+  border-top: 5px solid #e8e8e8;
   margin-bottom: 10px;
 
   h1 {
     font-size: 16px;
     margin: 5px 10px;
     text-align: left;
+    color: @primary-color;
   }
 
   .scroll {
@@ -75,7 +78,6 @@ export default {
         background-color: #fff;
         display: inline-block;
         text-align: center;
-        color: rgba(255, 122, 11, 0.69);
 
         &:first-child {
           margin-left: -75px;

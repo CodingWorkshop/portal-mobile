@@ -25,9 +25,10 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+@import '../style/base.less';
 .row {
   background-color: #fff;
-  border-bottom: 4px solid #fd7e14;
+  border-bottom: 4px solid @primary-color;
 
   .logo {
     text-align: left;
@@ -43,7 +44,7 @@ export default {
     .icon {
       margin: 5px;
       font-size: 26px;
-      color: #fd7e14;
+      color: @primary-color;
     }
   }
 }

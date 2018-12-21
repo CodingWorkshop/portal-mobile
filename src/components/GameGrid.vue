@@ -67,23 +67,5 @@ export default {
   z-index: 0;
   padding: 10px 0;
   height: 300px;
-
-  .carouse-item {
-    img {
-      width: 120px;
-    }
-
-    .text {
-      padding: 2px 0 2px 10px;
-      float: left;
-    }
-
-    .icon {
-      padding: 2px 9px 2px 0;
-      float: right;
-      font-size: 18px;
-      color: #fd7e14;
-    }
-  }
 }
 </style>

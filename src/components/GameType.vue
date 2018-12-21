@@ -44,6 +44,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '../style/base.less';
 .scroll {
   overflow: auto;
   text-align: left;
@@ -53,7 +54,7 @@ export default {
       position: relative;
       display: inline-block;
       text-align: center;
-      color: rgba(255, 122, 11, 0.69);
+      color: @primary-color;
       background: #fff;
 
       &:not(:last-child):after {
