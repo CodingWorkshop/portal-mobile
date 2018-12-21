@@ -1,7 +1,10 @@
 const fs = require('fs-extra');
 const path = require('path');
-const request = require('request');
+const axios = require('axios');
 const prettier = require("prettier");
+const dayjs = require('dayjs');
+
+buildTheme();
 
 /*
     default theme source : https://next.json-generator.com/api/json/get/4kJ9EIlCr
@@ -13,67 +16,42 @@ const prettier = require("prettier");
     ex.2
     >> npm run theme https://next.json-generator.com/api/json/get/Vk_GCJXe8
 */
-
-const DEFAULT_THEME_SORUCE =
-  'https://next.json-generator.com/api/json/get/4kJ9EIlCr';
-const themeHttpSource = (process.argv[2] === 'default') ? DEFAULT_THEME_SORUCE :
-  process.argv[2]
-
-const variablesStylePath = path.join(
-  process.cwd(),
-  'src',
-  'style',
-  'variables.less'
-);
-
-const customStylePath = path.join(
-  process.cwd(),
-  'src',
-  'style',
-  'custom.less'
-);
-
-request.get(themeHttpSource, (error, callback, res) => {
-
-  if (error) {
-    console.log(`Build Fail : source error ! ${themeHttpSource}`);
-  }
-  generateCustomLess(res)
-    .then(() => addCustomLess())
-    .then(() => console.log(`Build Success !!!`))
+function buildTheme() {
+  return axios.get(prepareThemeHttpSource())
+    .then(res => generateCustomLess(res.data))
+    .then(() => console.log(`[${getNow()}][INFO]:Build Theme Over !!!`))
     .catch(err => console.log(
-      `[ERROR]:Build Fail : write file fail ! ${err}`));
-})
+      `[${getNow()}][ERROR]:Build Fail : write file fail ! ${err}`));
+}
+
+function prepareThemeHttpSource() {
+  const DEFAULT_THEME_SORUCE =
+    'https://next.json-generator.com/api/json/get/4kJ9EIlCr';
+
+  return ((process.argv[2] === 'default') || !process.argv[2]) ?
+    DEFAULT_THEME_SORUCE :
+    process.argv[2]
+}
 
 function generateCustomLess(res) {
   return fs.writeFile(
-    customStylePath,
+    path.join(
+      process.cwd(),
+      'src',
+      'style',
+      'custom.less'
+    ),
     formatCustomTheme(res),
     'utf8'
   );
 }
 
-function addCustomLess() {
-  return fs.readFile(
-      variablesStylePath
-    ).then(variablesFile => fs.writeFile(
-      variablesStylePath,
-      `${variablesFile}`.replace(/\/\/ /, '')))
-    .catch(err => console.log(
-      `[ERROR]:Build Main Style Error - ${err}`));
-}
-
 function formatCustomTheme(res) {
-  let themeColor = '';
-  try {
-    themeColor = JSON.parse(res).themeColor;
-  } catch (error) {
-    console.log(res, error);
-    console.log(`Build Fail : themeColor undefined !`);
-    return ``;
-  }
-
-  return prettier.format(themeColor, {
+  return prettier.format(res.themeColor, {
     parser: 'less'
   });
+}
+
+function getNow() {
+  return dayjs().format('YYYY-MM-DD HH:mm:ss')
 }
