@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <ul>
-      <li v-for="i in asyncCount" :key="i">
-        <font-awesome-icon icon="bullhorn" />
-        即日起 任何品項的【{{i}}】通通88折起
-      </li>
-    </ul>
+  <div class="announcement">
+    <font-awesome-icon icon="bullhorn" class="fa-2x icon"/>
+    <div class="marquee">
+      <div class="news">
+        <span v-for="i in asyncCount" :key="i">即日起 任何品項的【{{i}}】通通88折起</span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -24,15 +24,42 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-ul {
-  list-style: none;
+.announcement {
+  position: relative;
+  background-color: #ffc18d;
+  .icon {
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    z-index: 1;
+  }
+  .marquee {
+    margin-left: 40px;
+    overflow: hidden;
+    position: relative;
+    height: 35px;
 
-  li {
-    font-size: 16px;
-    height: 32px;
-    background-color: #fd7e147a;
-    padding: 2px 0 0 12px;
-    text-align: left;
+    .news {
+      width: 100%;
+      position: absolute;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: marquee 7s linear infinite;
+      span {
+        font-size: 16px;
+        line-height: 32px;
+        float: left;
+        width: 100%;
+      }
+    }
+  }
+}
+@keyframes marquee {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
   }
 }
 </style>
