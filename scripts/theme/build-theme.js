@@ -9,17 +9,6 @@ const EnvVariableHttpSource = `https://raw.githubusercontent.com/CodingWorkshop/
 
 buildTheme();
 
-/*
-    default theme source : https://next.json-generator.com/api/json/get/4kJ9EIlCr
-    test theme source : https://next.json-generator.com/api/json/get/Vk_GCJXe8
-
-    ex.1
-    >> npm run theme default
-
-    ex.2
-    >> npm run theme https://next.json-generator.com/api/json/get/Vk_GCJXe8
-*/
-
 function buildTheme() {
   return axios.get(prepareThemeHttpSource())
     .then(res => generateVariablesLess(res.data))
