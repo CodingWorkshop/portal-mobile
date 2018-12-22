@@ -24,6 +24,6 @@ yarn-error.log*
 # yarn.lock
 yarn.lock
 
-# Generated Custom Style File
-/src/style/custom.less
-/src/style/custom.css
+# Generated Variables Style File
+/src/style/variables.less
+/src/style/variables.css
