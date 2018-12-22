@@ -8,8 +8,9 @@ const webSiteCode =  (!process.argv[2]) ? 'staging': process.argv[2];
 const EnvVariableHttpSource = `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/.env.${webSiteCode}`;
 
 axios.get(EnvVariableHttpSource)
-  .then(res => console.log('EnvVariable data ',res.data))
-  .catch(() => console.log('EnvVariable Source Undefind !'))
+  .then(res => generateEnvVariable(res.data))
+  .then(() => console.log('Generate webSite EnvVariable Done.'))
+  .catch(() => console.log('Generate webSite EnvVariable Error.'));
 
 //buildTheme();
 
@@ -51,4 +52,15 @@ function formatLessFile(res) {
 
 function getNow() {
   return dayjs().format('YYYY-MM-DD HH:mm:ss')
+}
+
+function generateEnvVariable(env){
+  return fs.writeFile(
+    path.join(
+      process.cwd(),
+      `.env.${webSiteCode}`
+    ),
+    env,
+    'utf8'
+  );
 }
