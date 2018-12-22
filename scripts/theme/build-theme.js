@@ -33,14 +33,9 @@ function buildTheme() {
       `[${getNow()}][ERROR]:Build Fail : write file fail ! ${err}`));
 }
 
-
 function prepareThemeHttpSource() {
-  const DEFAULT_THEME_SORUCE =
-    'https://next.json-generator.com/api/json/get/4kJ9EIlCr';
-
-  return ((process.argv[2] === 'default') || !process.argv[2]) ?
-    DEFAULT_THEME_SORUCE :
-    process.argv[2]
+  console.log('url:', `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/custom.${webSiteCode}.less`);
+  return `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/custom.${webSiteCode}.less`;
 }
 
 function generateVariablesLess(res) {
@@ -57,7 +52,7 @@ function generateVariablesLess(res) {
 }
 
 function formatLessFile(res) {
-  return prettier.format(res.themeColor, {
+  return prettier.format(res, {
     parser: 'less'
   });
 }
