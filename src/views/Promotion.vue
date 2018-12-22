@@ -3,20 +3,16 @@
     <h1>優惠活動</h1>
     <div class="cell-group">
       <CellGroup>
-        <cell title="站長推薦" to="/components/button" target="_blank" label="優惠辦理大廳站"
-          class="cell" />
+        <cell title="站長推薦" to="/components/button" target="_blank" label="優惠辦理大廳站" class="cell"/>
       </CellGroup>
     </div>
     <Select v-model="promotion" class="select">
-      <Option v-for="(i,index) in list" :value="i.value" :key="index">
-        {{i.label}}
-      </Option>
+      <Option v-for="(i,index) in list" :value="i.value" :key="index">{{i.label}}</Option>
     </Select>
-    
-      <div>
-        <img v-for="(i,index) in list[this.promotion].promot" :key="index" :src="i" />
-      </div>
 
+    <div>
+      <img v-for="(i,index) in list[this.promotion].promot" :key="index" :src="i">
+    </div>
   </div>
 </template>
 

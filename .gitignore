@@ -26,4 +26,9 @@ yarn.lock
 
 # Generated Variables Style File
 /src/style/variables.less
-/src/style/variables.css
+
+# Old Custom Style File
+/src/style/custom.less
+
+# Generated
+/src/style/*.css

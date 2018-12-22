@@ -4,7 +4,8 @@
     <Table border :columns="columns" :data="data"></Table>
     <br>
     <Button type="success" long>領取</Button>
-    <br><br>
+    <br>
+    <br>
     <Button type="primary" long>刷新</Button>
   </div>
 </template>

@@ -2,7 +2,8 @@
   <div class="sort">
     <i-col span="8" v-for="(i,index) in depositDetail" :key="index" class="icon-btn">
       <a class="icon">
-        <font-awesome-icon v-bind:icon="i.icon" /></a>
+        <font-awesome-icon v-bind:icon="i.icon"/>
+      </a>
       <p>{{i.title}}</p>
     </i-col>
   </div>
