@@ -24,7 +24,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-@import '../style/base.less';
+@import '../style/variables.less';
 .announcement {
   position: relative;
   background-color: @announcement-bg;

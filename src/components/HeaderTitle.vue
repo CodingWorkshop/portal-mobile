@@ -25,7 +25,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-@import '../style/base.less';
+@import '../style/variables.less';
 .row {
   background-color: #fff;
   border-bottom: 4px solid @primary-color;

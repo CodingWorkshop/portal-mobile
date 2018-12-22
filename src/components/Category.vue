@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../style/base.less';
+@import '../style/variables.less';
 .outer {
   border-top: 5px solid #e8e8e8;
   margin-bottom: 10px;
