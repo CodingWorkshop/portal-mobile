@@ -3,19 +3,28 @@ const path = require('path');
 const axios = require('axios');
 const prettier = require("prettier");
 const dayjs = require('dayjs');
+const { spawn } = require('child_process');
 
-buildTheme();
+const webSiteCode =  (!process.argv[2]) ? 'staging': process.argv[2];
+const EnvVariableHttpSource = `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/.env.${webSiteCode}`;
 
-/*
-    default theme source : https://next.json-generator.com/api/json/get/4kJ9EIlCr
-    test theme source : https://next.json-generator.com/api/json/get/Vk_GCJXe8
+buildTheme()
+  .then(() => produceWebSiteEnvVariable())
+  .then(() => RunBuild())
+  .catch(() => console.log(`[${getNow()}][ERROR]:Produce WebSite EnvVariable Error.`));
 
-    ex.1
-    >> npm run theme default
+function produceWebSiteEnvVariable(){
+  return axios.get(EnvVariableHttpSource)
+  .then(res => generateEnvVariable(res.data))
+  .then(() => console.log(`[${getNow()}][INFO]:Produce WebSite EnvVariable Done.`));
+}
 
-    ex.2
-    >> npm run theme https://next.json-generator.com/api/json/get/Vk_GCJXe8
-*/
+function RunBuild(){
+  spawn(/^win/.test(process.platform) ? 'vue-cli-service.cmd' : 'vue-cli-service', ['build',  '--mode', webSiteCode],{
+    stdio: 'inherit'
+  });
+}
+
 function buildTheme() {
   return axios.get(prepareThemeHttpSource())
     .then(res => generateVariablesLess(res.data))
@@ -23,6 +32,7 @@ function buildTheme() {
     .catch(err => console.log(
       `[${getNow()}][ERROR]:Build Fail : write file fail ! ${err}`));
 }
+
 
 function prepareThemeHttpSource() {
   const DEFAULT_THEME_SORUCE =
@@ -54,4 +64,15 @@ function formatLessFile(res) {
 
 function getNow() {
   return dayjs().format('YYYY-MM-DD HH:mm:ss')
+}
+
+function generateEnvVariable(env){
+  return fs.writeFile(
+    path.join(
+      process.cwd(),
+      `.env.${webSiteCode}`
+    ),
+    env,
+    'utf8'
+  );
 }
