@@ -18,7 +18,7 @@ buildTheme();
 */
 function buildTheme() {
   return axios.get(prepareThemeHttpSource())
-    .then(res => generateCustomLess(res.data))
+    .then(res => generateVariablesLess(res.data))
     .then(() => console.log(`[${getNow()}][INFO]:Build Theme Over !!!`))
     .catch(err => console.log(
       `[${getNow()}][ERROR]:Build Fail : write file fail ! ${err}`));
@@ -33,20 +33,20 @@ function prepareThemeHttpSource() {
     process.argv[2]
 }
 
-function generateCustomLess(res) {
+function generateVariablesLess(res) {
   return fs.writeFile(
     path.join(
       process.cwd(),
       'src',
       'style',
-      'custom.less'
+      'variables.less'
     ),
-    formatCustomTheme(res),
+    formatLessFile(res),
     'utf8'
   );
 }
 
-function formatCustomTheme(res) {
+function formatLessFile(res) {
   return prettier.format(res.themeColor, {
     parser: 'less'
   });

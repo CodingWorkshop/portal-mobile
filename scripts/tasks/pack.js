@@ -26,7 +26,7 @@ function generateCustomStyle() {
     process.cwd(),
     'src',
     'style',
-    'custom.less'
+    'variables.less'
   );
   fs.ensureFile(customStylePath).then(() => {
     console.log(`[${getNow()}][INFO]:generate custom style`);

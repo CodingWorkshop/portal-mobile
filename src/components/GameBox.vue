@@ -27,7 +27,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-@import '../style/variables.less';
+@import '../style/mixins.less';
 .game-img {
   max-width: 95%;
   max-height: 95%;

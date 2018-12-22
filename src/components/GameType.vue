@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../style/variables.less';
+@import '../style/mixins.less';
 .scroll {
   overflow: auto;
   text-align: left;
