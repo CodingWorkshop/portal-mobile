@@ -7,7 +7,11 @@ const dayjs = require('dayjs');
 const webSiteCode =  (!process.argv[2]) ? 'staging': process.argv[2];
 const EnvVariableHttpSource = `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/.env.${webSiteCode}`;
 
-buildTheme();
+axios.get(EnvVariableHttpSource)
+  .then(res => console.log('EnvVariable data ',res.data))
+  .catch(() => console.log('EnvVariable Source Undefind !'))
+
+//buildTheme();
 
 function buildTheme() {
   return axios.get(prepareThemeHttpSource())
