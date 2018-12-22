@@ -1,14 +1,15 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
+import axios from 'axios';
 
 Vue.use(VueI18n);
 
-export default new VueI18n({
+const i18n = new VueI18n({
   locale: 'zh-TW',
   fallbackLocale: 'zh-TW'
 });
 
-export const i18nInfo = [
+const langSettingList = [
   {
     locale: 'en-US',
     name: 'English',
@@ -20,3 +21,22 @@ export const i18nInfo = [
     api: 'https://next.json-generator.com/api/json/get/EkTzAa8eI'
   }
 ];
+
+function getLangs() {
+  const locale = i18n.locale;
+  const url = langSettingList.find(l => l.locale === locale).api;
+
+  axios.get(url).then(
+    response => {
+      const language = response.ReturnObject;
+      i18n.setLocaleMessage(locale, language);
+    },
+    err => {
+      alert(err);
+    }
+  );
+}
+
+export default i18n;
+export const i18nInfo = langSettingList;
+export const loadLangs = getLangs;
