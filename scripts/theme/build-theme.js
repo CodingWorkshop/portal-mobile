@@ -34,8 +34,7 @@ function buildTheme() {
 }
 
 function prepareThemeHttpSource() {
-  console.log('url:', `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/custom.${webSiteCode}.less`);
-  return `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/custom.${webSiteCode}.less`;
+  return `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/variables.${webSiteCode}.less`;
 }
 
 function generateVariablesLess(res) {
