@@ -23,7 +23,7 @@ VueTouch.config.swipe = {
 import './plugins/iview.js';
 import './plugins/fortAwesome-regular.js';
 import './plugins/fortAwesome-solid.js';
-import i18n from './i18n';
+import { default as i18n, i18nInfo } from './i18n';
 
 router.beforeEach(function(to, from, next) {
   const requiredLogin = to.meta.requiredLogin || false;
@@ -83,12 +83,13 @@ axios.interceptors.response.use(
 );
 
 function loadLangs() {
-  axios.get('https://next.json-generator.com/api/json/get/VJWKeCGlU').then(
+  const locale = i18n.locale;
+  const url = i18nInfo.find(l => l.locale === locale).api;
+
+  axios.get(url).then(
     response => {
-      const languages = response.ReturnObject;
-      Object.keys(languages).forEach(i => {
-        i18n.setLocaleMessage(i, languages[i]);
-      });
+      const language = response.ReturnObject;
+      i18n.setLocaleMessage(locale, language);
     },
     err => {
       alert(err);
