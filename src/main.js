@@ -2,24 +2,12 @@
 import App from './App.vue';
 import routerGenerator from './router';
 import store from './store/index';
-import VueTouch from 'vue-touch';
+import prepareTouch from './touch';
 import axios from 'axios';
 
 const router = routerGenerator(store);
+prepareTouch();
 
-//自定義手勢(連續點擊兩下)
-VueTouch.registerCustomEvent('doubletap', {
-  type: 'tap',
-  taps: 2
-});
-
-Vue.config.productionTip = false;
-Vue.use(VueTouch, {
-  name: 'v-touch'
-});
-VueTouch.config.swipe = {
-  direction: 'horizontal'
-};
 import './plugins/iview.js';
 import './plugins/fortAwesome-regular.js';
 import './plugins/fortAwesome-solid.js';
