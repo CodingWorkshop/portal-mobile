@@ -4,6 +4,9 @@ const axios = require('axios');
 const prettier = require("prettier");
 const dayjs = require('dayjs');
 
+const webSiteCode =  (!process.argv[2]) ? 'staging': process.argv[2];
+const EnvVariableHttpSource = `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/.env.${webSiteCode}`;
+
 buildTheme();
 
 /*
@@ -16,6 +19,7 @@ buildTheme();
     ex.2
     >> npm run theme https://next.json-generator.com/api/json/get/Vk_GCJXe8
 */
+
 function buildTheme() {
   return axios.get(prepareThemeHttpSource())
     .then(res => generateVariablesLess(res.data))
