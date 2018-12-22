@@ -2,10 +2,17 @@
   <div style="height:100%">
     <h1>帳務中心</h1>
     <tabs v-model="key" size="small">
-      <tab-pane v-for="(i,index) in walletDetail" :key="index" v-bind:label="i.label"
-        v-bind:name="i.name">
-        <v-touch tag="body" v-on:swipeleft="activeKey(index+1,i.name)"
-          v-on:swiperight="activeKey(index-1,i.name)">
+      <tab-pane
+        v-for="(i,index) in walletDetail"
+        :key="index"
+        v-bind:label="i.label"
+        v-bind:name="i.name"
+      >
+        <v-touch
+          tag="body"
+          v-on:swipeleft="activeKey(index+1,i.name)"
+          v-on:swiperight="activeKey(index-1,i.name)"
+        >
           <div>
             <keep-alive>
               <component :is="i.name"></component>

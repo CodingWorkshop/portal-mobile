@@ -1,8 +1,11 @@
 <template>
   <div class="account">
     <h1>Account Info</h1>
-    <p><label>User:</label>{{user}}</p>
-    
+    <p>
+      <label>User:</label>
+      {{user}}
+    </p>
+
     <Select v-model="$i18n.locale">
       <Option v-for="(lang,i) in languages" :value="lang.locale" :key="i">{{lang.name}}</Option>
     </Select>

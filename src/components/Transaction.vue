@@ -6,17 +6,26 @@
       <Radio label="sevendays">7日內</Radio>
       <Radio label="thirthdays">30日內</Radio>
     </RadioGroup>
-    <br><br>
+    <br>
+    <br>
     <div>
-      <Checkbox :indeterminate="indeterminate" :value="checkAll"
-        @click.prevent.native="handleCheckAll">全部</Checkbox>
-      <CheckboxGroup v-model="checkAllGroup" @on-change="checkAllGroupChange"
-        v-for="(i,index) in transactionDetail" :key="index" style="display:inline;">
+      <Checkbox
+        :indeterminate="indeterminate"
+        :value="checkAll"
+        @click.prevent.native="handleCheckAll"
+      >全部</Checkbox>
+      <CheckboxGroup
+        v-model="checkAllGroup"
+        @on-change="checkAllGroupChange"
+        v-for="(i,index) in transactionDetail"
+        :key="index"
+        style="display:inline;"
+      >
         <Checkbox v-bind:label="i.value"></Checkbox>
       </CheckboxGroup>
     </div>
     <div class="content">
-      <font-awesome-icon icon="exclamation-triangle" style="font-size:40px;" />
+      <font-awesome-icon icon="exclamation-triangle" style="font-size:40px;"/>
       <p>無任何資料</p>
     </div>
   </div>
