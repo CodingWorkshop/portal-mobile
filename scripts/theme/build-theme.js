@@ -7,12 +7,15 @@ const dayjs = require('dayjs');
 const webSiteCode =  (!process.argv[2]) ? 'staging': process.argv[2];
 const EnvVariableHttpSource = `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/.env.${webSiteCode}`;
 
-axios.get(EnvVariableHttpSource)
-  .then(res => generateEnvVariable(res.data))
-  .then(() => console.log('Generate webSite EnvVariable Done.'))
-  .catch(() => console.log('Generate webSite EnvVariable Error.'));
+buildTheme()
+  .then(() => produceWebSiteEnvVariable());
 
-//buildTheme();
+function produceWebSiteEnvVariable(){
+  axios.get(EnvVariableHttpSource)
+  .then(res => generateEnvVariable(res.data))
+  .then(() => console.log('Produce webSite EnvVariable Done.'))
+  .catch(() => console.log('Produce webSite EnvVariable Error.'));
+}
 
 function buildTheme() {
   return axios.get(prepareThemeHttpSource())
