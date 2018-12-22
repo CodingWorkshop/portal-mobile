@@ -1,14 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import axios from 'axios';
-import VueAxios from 'vue-axios';
 
 import Home from './views/Home.vue';
 import Account from './views/Account.vue';
 import NotFound from './views/NotFound.vue';
 
-export default store => {
-  Vue.use(VueAxios, axios);
+export default (store, http) => {
   Vue.use(Router);
   const router = new Router({
     mode: 'history',
@@ -50,22 +47,22 @@ export default store => {
     ]
   });
 
-  setupAxios(store);
+  router.beforeEach(function(to, from, next) {
+    const requiredLogin = to.meta.requiredLogin || false;
+    if (requiredLogin && !store.state.login.loginStatus) {
+      store.commit('openDrawerPage', {
+        type: 'login'
+      });
+      store.commit('recordDestinationPage', to.path);
+    } else {
+      next();
+    }
+  });
 
-  function setupAxios(store) {
-    router.beforeEach(function(to, from, next) {
-      const requiredLogin = to.meta.requiredLogin || false;
-      if (requiredLogin && !store.state.login.loginStatus) {
-        store.commit('openDrawerPage', {
-          type: 'login'
-        });
-        store.commit('recordDestinationPage', to.path);
-      } else {
-        next();
-      }
-    });
+  setupAxios(http);
 
-    axios.interceptors.response.use(
+  function setupAxios(http) {
+    http.interceptors.response.use(
       response => {
         if (response.data.IsSuccess) {
           return response.data;

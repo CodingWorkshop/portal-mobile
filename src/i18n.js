@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
-import axios from 'axios';
 
 Vue.use(VueI18n);
 
@@ -22,11 +21,11 @@ const langSettingList = [
   }
 ];
 
-function getLangs() {
+function getLangs(http) {
   const locale = i18n.locale;
   const url = langSettingList.find(l => l.locale === locale).api;
 
-  axios.get(url).then(
+  http.get(url).then(
     response => {
       const language = response.ReturnObject;
       i18n.setLocaleMessage(locale, language);

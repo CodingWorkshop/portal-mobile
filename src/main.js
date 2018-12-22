@@ -1,10 +1,12 @@
 ﻿import Vue from 'vue';
 import App from './App.vue';
-import routerGenerator from './router';
+import httpGenerator from './http';
 import store from './store/index';
+import routerGenerator from './router';
 import prepareTouch from './touch';
 
-const router = routerGenerator(store);
+const http = httpGenerator();
+const router = routerGenerator(store, http);
 prepareTouch();
 
 import './plugins/iview.js';
@@ -17,7 +19,7 @@ new Vue({
   store,
   i18n,
   created: function() {
-    loadLangs();
+    loadLangs(http);
   },
   render: h => h(App)
 }).$mount('#app');
