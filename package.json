@@ -1,72 +1,72 @@
 {
-    "name": "portal-mobile",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
-        "lint": "vue-cli-service lint",
-        "postinstall": "node scripts/tasks/pack.js",
-        "start": "node scripts/express/server.js",
-        "test:unit": "vue-cli-service test:unit",
-        "theme": "node scripts/theme/build-theme.js"
-    },
-    "dependencies": {
-        "@fortawesome/fontawesome-svg-core": "^1.2.8",
-        "@fortawesome/free-brands-svg-icons": "^5.5.0",
-        "@fortawesome/free-regular-svg-icons": "^5.5.0",
-        "@fortawesome/free-solid-svg-icons": "^5.5.0",
-        "@fortawesome/vue-fontawesome": "^0.1.2",
-        "axios": "^0.18.0",
-        "connect-history-api-fallback": "^1.5.0",
-        "dayjs": "^1.7.7",
-        "express": "^4.16.4",
-        "fs": "0.0.1-security",
-        "fs-extra": "^7.0.1",
-        "iview": "^3.0.1",
-        "register-service-worker": "^1.0.0",
-        "serve-static": "^1.13.2",
-        "vue": "^2.5.17",
-        "vue-axios": "^2.1.4",
-        "vue-i18n": "^8.0.0",
-        "vue-router": "^3.0.1",
-        "vue-touch": "^2.0.0-beta.4",
-        "vuex": "^3.0.1",
-        "vuex-persistedstate": "^2.5.4"
-    },
-    "devDependencies": {
-        "@vue/cli-plugin-babel": "^3.0.5",
-        "@vue/cli-plugin-eslint": "^3.1.5",
-        "@vue/cli-plugin-pwa": "^3.1.2",
-        "@vue/cli-plugin-unit-jest": "^3.0.5",
-        "@vue/cli-service": "^3.1.4",
-        "@vue/eslint-config-prettier": "^4.0.1",
-        "@vue/test-utils": "^1.0.0-beta.20",
-        "axios-mock-adapter": "^1.15.0",
-        "babel-core": "7.0.0-bridge.0",
-        "babel-eslint": "^10.0.1",
-        "babel-jest": "^23.6.0",
-        "eslint": "^5.9.0",
-        "eslint-plugin-vue": "^5.0.0-beta.4",
-        "less": "^2.7.3",
-        "less-loader": "^4.0.6",
-        "lint-staged": "^7.2.2",
-        "vue-cli-plugin-i18n": "^0.5.1",
-        "vue-cli-plugin-iview": "^1.0.6",
-        "vue-loader": "15.4.2",
-        "vue-template-compiler": "^2.5.17"
-    },
-    "gitHooks": {
-        "pre-commit": "lint-staged"
-    },
-    "lint-staged": {
-        "src/**/*.js": [
-            "vue-cli-service lint",
-            "git add"
-        ],
-        "*.vue": [
-            "vue-cli-service lint",
-            "git add"
-        ]
-    }
+  "name": "portal-mobile",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "postinstall": "node scripts/tasks/pack.js",
+    "start": "node scripts/express/server.js",
+    "test:unit": "vue-cli-service test:unit",
+    "theme": "node scripts/theme/build-theme.js"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.8",
+    "@fortawesome/free-brands-svg-icons": "^5.5.0",
+    "@fortawesome/free-regular-svg-icons": "^5.5.0",
+    "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "@fortawesome/vue-fontawesome": "^0.1.2",
+    "axios": "^0.18.0",
+    "connect-history-api-fallback": "^1.5.0",
+    "dayjs": "^1.7.7",
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "fs-extra": "^7.0.1",
+    "iview": "^3.0.1",
+    "register-service-worker": "^1.0.0",
+    "serve-static": "^1.13.2",
+    "vue": "^2.5.17",
+    "vue-axios": "^2.1.4",
+    "vue-i18n": "^8.0.0",
+    "vue-router": "^3.0.1",
+    "vue-touch": "^2.0.0-beta.4",
+    "vuex": "^3.0.1",
+    "vuex-persistedstate": "^2.5.4"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.5",
+    "@vue/cli-plugin-eslint": "^3.1.5",
+    "@vue/cli-plugin-pwa": "^3.1.2",
+    "@vue/cli-plugin-unit-jest": "^3.0.5",
+    "@vue/cli-service": "^3.1.4",
+    "@vue/eslint-config-prettier": "^4.0.1",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "axios-mock-adapter": "^1.15.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "eslint": "^5.9.0",
+    "eslint-plugin-vue": "^5.0.0-beta.4",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.6",
+    "lint-staged": "^7.2.2",
+    "vue-cli-plugin-i18n": "^0.5.1",
+    "vue-cli-plugin-iview": "^1.0.6",
+    "vue-loader": "15.4.2",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
 }
