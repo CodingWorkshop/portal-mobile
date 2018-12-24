@@ -1,7 +1,7 @@
 <template>
   <Row type="flex" class="tab" justify="space-around">
     <i-col span="4">
-      <Button type="text" to="/" long class="btn">
+      <Button type="text" to="/" long class="btn" @click="scrollTop()">
         <font-awesome-icon class="icon" icon="gamepad"/>
         <div>{{$t('commodity')}}</div>
       </Button>
@@ -35,7 +35,20 @@
 <script>
 export default {
   name: 'Guide',
-  components: {}
+  components: {},
+  methods: {
+    scrollTop: function() {
+      const element = document.documentElement;
+      const animate = setInterval(frame, 2);
+      function frame() {
+        if (element.scrollTop === 0) {
+          clearInterval(animate);
+        } else {
+          element.scrollTop = element.scrollTop - 10;
+        }
+      }
+    }
+  }
 };
 </script>
 <style lang="less" scoped>
