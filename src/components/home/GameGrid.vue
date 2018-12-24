@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import GameBox from '@/components/GameBox.vue';
+import GameBox from '@/components/common/GameBox.vue';
 export default {
   name: 'GameGrid',
   props: ['type'],

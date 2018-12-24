@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <router-view />
-    <guide></guide>
+    <router-view/>
+    <footer-button></footer-button>
     <multi-drawer></multi-drawer>
   </div>
 </template>
 
 <script>
-import Guide from '@/components/Guide.vue';
-import MultiDrawer from '@/components/MultiDrawer.vue';
+import FooterButton from '@/components/layout/FooterButton.vue';
+import MultiDrawer from '@/components/common/MultiDrawer.vue';
 export default {
   name: 'app',
   components: {
-    Guide,
+    FooterButton,
     MultiDrawer
   }
 };

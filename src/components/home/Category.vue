@@ -4,7 +4,7 @@
     <div class="scroll">
       <div class="box1">
         <div class="box1-item" v-for="(i, index) in asyncCount" :key="index">
-          <img src="../assets/cake.png">
+          <img src="../../assets/cake.png">
           <br>
           <span>{{i.name}}</span>
         </div>
@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../style/mixins.less';
+@import '../../style/mixins.less';
 .outer {
   border-top: 5px solid #e8e8e8;
   margin-bottom: 10px;

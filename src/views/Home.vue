@@ -15,13 +15,13 @@
 </template>
 
 <script>
-import HeaderTitle from '@/components/HeaderTitle.vue';
-import Announcement from '@/components/Announcement.vue';
-import Slide from '@/components/Slide.vue';
-import GameType from '@/components/GameType.vue';
-import Subject from '@/components/Subject.vue';
-import GameGrid from '@/components/GameGrid.vue';
-import Category from '@/components/Category.vue';
+import HeaderTitle from '@/components/layout/HeaderTitle.vue';
+import Announcement from '@/components/layout/Announcement.vue';
+import Slide from '@/components/ui/Slide.vue';
+import GameType from '@/components/home/GameType.vue';
+import Subject from '@/components/home/Subject.vue';
+import GameGrid from '@/components/home/GameGrid.vue';
+import Category from '@/components/home/Category.vue';
 
 export default {
   name: 'home',

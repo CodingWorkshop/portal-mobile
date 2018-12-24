@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import GameBox from '@/components/GameBox.vue';
+import GameBox from '@/components/common/GameBox.vue';
 import { mapState } from 'vuex';
 export default {
   name: 'DrawerGameList',
