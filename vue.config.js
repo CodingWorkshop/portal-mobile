@@ -1,4 +1,5 @@
 module.exports = {
+  baseUrl: process.env.BASE_URL,
   lintOnSave: process.env.NODE_ENV !== 'production',
 
   pluginOptions: {
