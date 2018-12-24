@@ -5,22 +5,22 @@ const prettier = require("prettier");
 const dayjs = require('dayjs');
 const { spawn } = require('child_process');
 
-const webSiteCode =  process.argv[2] || 'staging';
-const EnvVariableHttpSource = `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/.env.${webSiteCode}`;
+const configuration =  process.argv[2] || 'staging';
+const envHttpUrl = `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/.env.${configuration}`;
 
 buildTheme()
   .then(() => produceWebSiteEnvVariable())
-  .then(() => RunBuild())
+  .then(() => runBuild())
   .catch(() => console.log(`[${getNow()}][ERROR]:Produce WebSite EnvVariable Error.`));
 
 function produceWebSiteEnvVariable(){
-  return axios.get(EnvVariableHttpSource)
+  return axios.get(envHttpUrl)
   .then(res => generateEnvVariable(res.data))
   .then(() => console.log(`[${getNow()}][INFO]:Produce WebSite EnvVariable Done.`));
 }
 
-function RunBuild(){
-  spawn(/^win/.test(process.platform) ? 'vue-cli-service.cmd' : 'vue-cli-service', ['build',  '--mode', webSiteCode],{
+function runBuild(){
+  spawn(/^win/.test(process.platform) ? 'vue-cli-service.cmd' : 'vue-cli-service', ['build',  '--mode', configuration],{
     stdio: 'inherit'
   });
 }
@@ -34,7 +34,7 @@ function buildTheme() {
 }
 
 function prepareThemeHttpSource() {
-  return `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/variables.${webSiteCode}.less`;
+  return `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/variables.${configuration}.less`;
 }
 
 function generateVariablesLess(res) {
@@ -64,7 +64,7 @@ function generateEnvVariable(env){
   return fs.writeFile(
     path.join(
       process.cwd(),
-      `.env.${webSiteCode}`
+      `.env.${configuration}`
     ),
     env,
     'utf8'
