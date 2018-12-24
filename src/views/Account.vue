@@ -33,7 +33,7 @@ export default {
         this.axios.get(url).then(
           response => {
             const language = response.ReturnObject;
-            this.$i18n.setLocaleMessage(locale, language);
+            this.$i18n.setLocaleMessage(locale, language.message);
           },
           err => {
             alert(err);

@@ -12,12 +12,12 @@ const langSettingList = [
   {
     locale: 'en-US',
     name: 'English',
-    api: 'https://next.json-generator.com/api/json/get/E1mxATUeL'
+    api: 'https://next.json-generator.com/api/json/get/VkzYRLKxU'
   },
   {
     locale: 'zh-TW',
     name: '繁體中文',
-    api: 'https://next.json-generator.com/api/json/get/EkTzAa8eI'
+    api: 'https://next.json-generator.com/api/json/get/V1UCCUYlU'
   }
 ];
 
@@ -28,7 +28,7 @@ function getLangs(http) {
   http.get(url).then(
     response => {
       const language = response.ReturnObject;
-      i18n.setLocaleMessage(locale, language);
+      i18n.setLocaleMessage(locale, language.message);
     },
     err => {
       alert(err);
@@ -39,3 +39,4 @@ function getLangs(http) {
 export default i18n;
 export const i18nInfo = langSettingList;
 export const loadLangs = getLangs;
+export const changeLangs = changeLangs;
