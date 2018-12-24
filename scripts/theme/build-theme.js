@@ -11,12 +11,12 @@ const envHttpUrl = `https://raw.githubusercontent.com/CodingWorkshop/env-portal-
 buildTheme()
   .then(() => produceWebSiteEnvVariable())
   .then(() => runBuild())
-  .catch(() => console.log(`[${getNow()}][ERROR]:Produce WebSite EnvVariable Error.`));
+  .catch(() => console.log(`[${getNow()}][ERROR]:Produce .env.${configuration} error.`));
 
 function produceWebSiteEnvVariable(){
   return axios.get(envHttpUrl)
-  .then(res => generateEnvVariable(res.data))
-  .then(() => console.log(`[${getNow()}][INFO]:Produce WebSite EnvVariable Done.`));
+  .then(res => generateEnvironmentFile(res.data))
+  .then(() => console.log(`[${getNow()}][INFO]:Produce .env.${configuration} Done.`));
 }
 
 function runBuild(){
@@ -60,7 +60,9 @@ function getNow() {
   return dayjs().format('YYYY-MM-DD HH:mm:ss')
 }
 
-function generateEnvVariable(env){
+function generateEnvironmentFile(env){
+  console.log(`.env.${configuration}: `, env);
+
   return fs.writeFile(
     path.join(
       process.cwd(),
