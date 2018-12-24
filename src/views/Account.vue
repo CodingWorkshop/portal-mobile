@@ -24,14 +24,12 @@ export default {
   },
   methods: {
     changeLanguage: function() {
-      const isNotExist =
-        Object.keys(this.$i18n.getLocaleMessage(this.$i18n.locale)).length ===
-        0;
+      const isNotExist = !this.$i18n.messages[this.$i18n.locale];
 
       if (isNotExist) {
         const locale = this.$i18n.locale;
-
         const url = i18nInfo.find(l => l.locale === locale).api;
+
         this.axios.get(url).then(
           response => {
             const language = response.ReturnObject;
