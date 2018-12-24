@@ -19,7 +19,7 @@ new Vue({
   store,
   i18n,
   created: function() {
-    loadLangs(http);
+    loadLangs(store, http);
   },
   render: h => h(App)
 }).$mount('#app');

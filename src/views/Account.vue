@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { i18nInfo } from '../i18n';
+import { i18nInfo, loadLangs } from '../i18n';
 export default {
   name: 'account',
   data: function() {
@@ -24,22 +24,7 @@ export default {
   },
   methods: {
     changeLanguage: function() {
-      const isNotExist = !this.$i18n.messages[this.$i18n.locale];
-
-      if (isNotExist) {
-        const locale = this.$i18n.locale;
-        const url = i18nInfo.find(l => l.locale === locale).api;
-
-        this.axios.get(url).then(
-          response => {
-            const language = response.ReturnObject;
-            this.$i18n.setLocaleMessage(locale, language.message);
-          },
-          err => {
-            alert(err);
-          }
-        );
-      }
+      loadLangs(this.$store, this.axios);
     }
   }
 };
