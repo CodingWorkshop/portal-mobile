@@ -34,7 +34,7 @@
 </template>
 <script>
 export default {
-  name: 'Guide',
+  name: 'FooterButton',
   components: {},
   methods: {
     scrollTop: function() {

@@ -25,10 +25,10 @@
 </template>
 
 <script>
-import Deposit from '@/components/Deposit.vue';
-import Withdrawal from '@/components/Withdrawal.vue';
-import Discount from '@/components/Discount.vue';
-import Transaction from '@/components/Transaction.vue';
+import Deposit from '@/components/wallet/Deposit.vue';
+import Withdrawal from '@/components/wallet/Withdrawal.vue';
+import Discount from '@/components/wallet/Discount.vue';
+import Transaction from '@/components/wallet/Transaction.vue';
 
 export default {
   name: 'wallet',

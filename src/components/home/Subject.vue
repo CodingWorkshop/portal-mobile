@@ -20,7 +20,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-@import '../style/mixins.less';
+@import '../../style/mixins.less';
 div {
   width: 100%;
   background-color: @primary-color;

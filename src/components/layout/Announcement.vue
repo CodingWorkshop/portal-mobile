@@ -24,7 +24,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-@import '../style/mixins.less';
+@import '../../style/mixins.less';
 .announcement {
   position: relative;
   background-color: @announcement-bg;
