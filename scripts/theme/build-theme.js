@@ -5,7 +5,7 @@ const prettier = require("prettier");
 const dayjs = require('dayjs');
 const { spawn } = require('child_process');
 
-const webSiteCode =  (!process.argv[2]) ? 'staging': process.argv[2];
+const webSiteCode =  process.argv[2] || 'staging';
 const EnvVariableHttpSource = `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/.env.${webSiteCode}`;
 
 buildTheme()
