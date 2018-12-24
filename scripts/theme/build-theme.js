@@ -5,36 +5,36 @@ const prettier = require("prettier");
 const dayjs = require('dayjs');
 const { spawn } = require('child_process');
 
-const webSiteCode =  (!process.argv[2]) ? 'staging': process.argv[2];
-const EnvVariableHttpSource = `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/.env.${webSiteCode}`;
+const configuration =  process.argv[2] || 'staging';
+const envHttpUrl = `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/.env.${configuration}`;
 
 buildTheme()
   .then(() => produceWebSiteEnvVariable())
-  .then(() => RunBuild())
-  .catch(() => console.log(`[${getNow()}][ERROR]:Produce WebSite EnvVariable Error.`));
+  .then(() => runBuild())
+  .catch(() => console.log(`[${getNow()}][ERROR]:Produce .env.${configuration} error.`));
 
 function produceWebSiteEnvVariable(){
-  return axios.get(EnvVariableHttpSource)
-  .then(res => generateEnvVariable(res.data))
-  .then(() => console.log(`[${getNow()}][INFO]:Produce WebSite EnvVariable Done.`));
+  return axios.get(envHttpUrl)
+  .then(res => generateEnvironmentFile(res.data))
+  .then(() => console.log(`[${getNow()}][INFO]:Produce .env.${configuration} done.`));
 }
 
-function RunBuild(){
-  spawn(/^win/.test(process.platform) ? 'vue-cli-service.cmd' : 'vue-cli-service', ['build',  '--mode', webSiteCode],{
+function runBuild(){
+  spawn(/^win/.test(process.platform) ? 'vue-cli-service.cmd' : 'vue-cli-service', ['build',  '--mode', configuration],{
     stdio: 'inherit'
   });
 }
 
 function buildTheme() {
-  return axios.get(prepareThemeHttpSource())
+  return axios.get(getThemeVariableUrl())
     .then(res => generateVariablesLess(res.data))
-    .then(() => console.log(`[${getNow()}][INFO]:Build Theme Over !!!`))
+    .then(() => console.log(`[${getNow()}][INFO]:Build theme over !!!`))
     .catch(err => console.log(
       `[${getNow()}][ERROR]:Build Fail : write file fail ! ${err}`));
 }
 
-function prepareThemeHttpSource() {
-  return `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/variables.${webSiteCode}.less`;
+function getThemeVariableUrl() {
+  return `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/variables.${configuration}.less`;
 }
 
 function generateVariablesLess(res) {
@@ -60,11 +60,11 @@ function getNow() {
   return dayjs().format('YYYY-MM-DD HH:mm:ss')
 }
 
-function generateEnvVariable(env){
+function generateEnvironmentFile(env){
   return fs.writeFile(
     path.join(
       process.cwd(),
-      `.env.${webSiteCode}`
+      `.env.${configuration}`
     ),
     env,
     'utf8'

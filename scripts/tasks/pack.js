@@ -5,8 +5,8 @@ const fs = require('fs-extra');
 const path = require('path');
 const dayjs = require('dayjs');
 
-prepareENV();
 generateCustomStyle();
+prepareENV();
 
 function prepareENV() {
   if (process.env.NODE_ENV === 'production') {
