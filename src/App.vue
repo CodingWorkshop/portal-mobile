@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <router-view />
+    <router-view/>
     <guide></guide>
     <multi-drawer></multi-drawer>
+    <Spin fix size="large" v-if="loading"></Spin>
   </div>
 </template>
 
@@ -14,6 +15,13 @@ export default {
   components: {
     Guide,
     MultiDrawer
+  },
+  computed: {
+    loading: function() {
+      return (
+        Object.keys(this.$i18n.getLocaleMessage(this.$i18n.locale)).length === 0
+      );
+    }
   }
 };
 </script>
