@@ -13,7 +13,16 @@ before_script:
   - npm run test:unit
 
 script:
-  - npm run build
+  - npm run theme gh-pages
+
+deploy:
+  local-dir: dist
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep-history: true
+  on:
+    branch: master
 
 notifications:
   email:
