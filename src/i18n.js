@@ -21,22 +21,31 @@ const langSettingList = [
   }
 ];
 
-function getLangs(http) {
+function getLangs(store, http) {
   const locale = i18n.locale;
-  const url = langSettingList.find(l => l.locale === locale).api;
+  const localMessage = store.state.i18n.message[locale];
+  i18n.setLocaleMessage(locale, localMessage);
 
-  http.get(url).then(
-    response => {
-      const language = response.ReturnObject;
-      i18n.setLocaleMessage(locale, language.message);
-    },
-    err => {
-      alert(err);
-    }
-  );
+  if (!localMessage) {
+    const url = langSettingList.find(l => l.locale === locale).api;
+
+    http.get(url).then(
+      response => {
+        const language = response.ReturnObject;
+        i18n.setLocaleMessage(locale, language.message);
+        store.commit('updateLocale', {
+          locale: i18n.locale,
+          version: language.version,
+          message: language.message
+        });
+      },
+      err => {
+        alert(err);
+      }
+    );
+  }
 }
 
 export default i18n;
 export const i18nInfo = langSettingList;
 export const loadLangs = getLangs;
-export const changeLangs = changeLangs;
