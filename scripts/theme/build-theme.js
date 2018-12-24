@@ -16,7 +16,7 @@ buildTheme()
 function produceWebSiteEnvVariable(){
   return axios.get(envHttpUrl)
   .then(res => generateEnvironmentFile(res.data))
-  .then(() => console.log(`[${getNow()}][INFO]:Produce .env.${configuration} Done.`));
+  .then(() => console.log(`[${getNow()}][INFO]:Produce .env.${configuration} done.`));
 }
 
 function runBuild(){
@@ -26,14 +26,14 @@ function runBuild(){
 }
 
 function buildTheme() {
-  return axios.get(prepareThemeHttpSource())
+  return axios.get(getThemeVariableUrl())
     .then(res => generateVariablesLess(res.data))
-    .then(() => console.log(`[${getNow()}][INFO]:Build Theme Over !!!`))
+    .then(() => console.log(`[${getNow()}][INFO]:Build theme over !!!`))
     .catch(err => console.log(
       `[${getNow()}][ERROR]:Build Fail : write file fail ! ${err}`));
 }
 
-function prepareThemeHttpSource() {
+function getThemeVariableUrl() {
   return `https://raw.githubusercontent.com/CodingWorkshop/env-portal-mobile/master/variables.${configuration}.less`;
 }
 
@@ -61,8 +61,6 @@ function getNow() {
 }
 
 function generateEnvironmentFile(env){
-  console.log(`.env.${configuration}: `, env);
-
   return fs.writeFile(
     path.join(
       process.cwd(),
