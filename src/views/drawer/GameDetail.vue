@@ -1,7 +1,8 @@
 <template>
   <div class="game-detail">
     <img src="https://via.placeholder.com/140x140">
-    <Button type="primary" @click="$store.commit('openDrawerPage',{type:'login'})" long>登入註冊</Button>
+    <Button v-if="loginStatus" type="primary" long>進入遊戲</Button>
+    <Button v-else type="primary" @click="$store.commit('openDrawerPage',{type:'login'})" long>登入註冊</Button>
     <ul>
       <li>
         <font-awesome-icon icon="gamepad" class="fa-2x icon"/>
@@ -11,7 +12,7 @@
         <font-awesome-icon :icon="['fas' , 'heart']" class="fa-2x icon"/>
         <p>加入最愛</p>
       </li>
-      <li>
+      <li v-if="!loginStatus">
         <font-awesome-icon icon="child" class="fa-2x icon"/>
         <p>我要試玩</p>
       </li>
@@ -29,7 +30,8 @@ export default {
   },
   computed: {
     ...mapState({
-      gameId: state => state.drawer.gameId
+      gameId: state => state.drawer.gameId,
+      loginStatus: state => state.login.loginStatus
     })
   },
   mounted: function() {
