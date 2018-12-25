@@ -2,9 +2,9 @@
   <div class="outer">
     <h1>{{ title }}</h1>
     <div class="scroll">
-      <div class="box1">
-        <div class="box1-item" v-for="(i, index) in asyncCount" :key="index">
-          <img src="../../assets/cake.png">
+      <div class="box">
+        <div class="box-item" v-for="(i, index) in asyncCount" :key="index">
+          <img src="https://via.placeholder.com/70x70">
           <br>
           <span>{{i.name}}</span>
         </div>
@@ -67,12 +67,12 @@ export default {
   .scroll {
     overflow: auto;
 
-    .box1 {
+    .box {
       height: 100px;
       position: relative;
       width: 800px;
 
-      .box1-item {
+      .box-item {
         width: 120px;
         height: 100px;
         background-color: #fff;

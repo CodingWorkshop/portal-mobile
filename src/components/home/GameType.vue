@@ -10,9 +10,11 @@
             :key="index"
             :style="{width:itemWidth+'px'}"
           >
-            <font-awesome-icon class="icon fa-3x fa-fw" v-bind:icon="i.icon"/>
-            <br>
-            <span>{{i.name}}</span>
+            <a :href="'lobby?gameType='+i.type">
+              <font-awesome-icon class="icon fa-3x fa-fw" v-bind:icon="i.icon"/>
+              <br>
+              <span>{{i.name}}</span>
+            </a>
           </div>
         </div>
       </div>
