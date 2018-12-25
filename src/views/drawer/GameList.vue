@@ -2,7 +2,7 @@
   <div>
     <Row>
       <game-box
-        v-for="(game,i) in setList"
+        v-for="(game,i) in getList"
         :key="i"
         :name="game.name"
         :isFavorite="game.isFavorite"
@@ -28,7 +28,7 @@ export default {
   computed: {
     ...mapState({
       gameListCatrgory: state => state.drawer.gameListCatrgory,
-      setList() {
+      getList() {
         return JSON.parse(
           sessionStorage.getItem('GameList_' + this.gameListCatrgory)
         );
