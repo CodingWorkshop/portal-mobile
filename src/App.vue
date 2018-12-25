@@ -3,6 +3,7 @@
     <router-view/>
     <footer-button></footer-button>
     <multi-drawer></multi-drawer>
+    <Spin fix size="large" v-if="loading"></Spin>
   </div>
 </template>
 
@@ -14,6 +15,13 @@ export default {
   components: {
     FooterButton,
     MultiDrawer
+  },
+  computed: {
+    loading: function() {
+      return (
+        Object.keys(this.$i18n.getLocaleMessage(this.$i18n.locale)).length === 0
+      );
+    }
   }
 };
 </script>
