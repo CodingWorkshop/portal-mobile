@@ -7,13 +7,14 @@
         <i-input v-model="user" placeholder="請輸入帳號" required clearable></i-input>
       </FormItem>
       <FormItem>
-        <Input v-model="password" type="password" placeholder="請輸入密碼" required
-          clearable />
+        <Input v-model="password" type="password" placeholder="請輸入密碼" required clearable/>
       </FormItem>
       <FormItem>
-        <Button html-type="submit" type="primary" :disabled="$store.state.login.signing">
-          {{$store.state.login.signing?'登入中...':'登入'}}
-        </Button>
+        <Button
+          html-type="submit"
+          type="primary"
+          :disabled="$store.state.login.signing"
+        >{{$store.state.login.signing?'登入中...':'登入'}}</Button>
       </FormItem>
     </Form>
     <div v-else>
@@ -36,20 +37,33 @@ export default {
   methods: {
     checkForm: function() {
       this.$store.commit('updateSigning');
-      this.$store
-        .dispatch({
-          type: 'submitLogin',
-          user: this.user,
-          password: this.password
+      this.axios
+        .post(process.env.VUE_APP_LOGIN_URL, {
+          Account: this.user,
+          Password: this.password
         })
-        .then(() => {
-          const destinationPage = this.$store.state.login.destinationPage;
-          if (destinationPage) {
-            this.$router.push(destinationPage);
-            this.$store.commit('recordDestinationPage', '');
-            this.$store.commit('closeDrawerPage', 'login');
+        .then(
+          response => {
+            const token = response.ReturnObject;
+            this.$store.dispatch('updateLogin', {
+              user: this.user,
+              token: token
+            });
+
+            const destinationPage = this.$store.state.login.destinationPage;
+            if (destinationPage) {
+              this.$router.push(destinationPage);
+              this.$store.commit('recordDestinationPage', '');
+              this.$store.commit('closeDrawerPage', 'login');
+            }
+
+            this.$store.commit('updateSigning');
+          },
+          () => {
+            alert('帳號或密碼錯誤');
+            this.$store.commit('updateSigning');
           }
-        });
+        );
     }
   }
 };
