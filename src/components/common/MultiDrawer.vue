@@ -19,7 +19,8 @@
           </h1>
         </v-touch>
       </div>
-      <v-touch tag="body" v-on:swiperight="$store.commit('closeDrawerPage',list.type)">
+      <v-touch tag="body" v-on:swiperight="$store.commit('closeDrawerPage',list.type)"
+                v-bind:swipe-options="{threshold: 180 }">
         <component :is="'drawer-'+list.type"></component>
       </v-touch>
     </Drawer>
