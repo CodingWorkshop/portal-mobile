@@ -4,7 +4,8 @@ export default {
     loginStatus: false,
     user: '',
     meidon: '',
-    destinationPage: ''
+    destinationPage: '',
+    token: ''
   },
   getters: {},
   mutations: {
@@ -19,6 +20,9 @@ export default {
     },
     recordDestinationPage(state, payload) {
       state.destinationPage = payload;
+    },
+    updateToken(state, payload) {
+      state.token = payload.token;
     }
   },
   actions: {
@@ -40,6 +44,18 @@ export default {
       store.commit('updateLoginStatus');
       store.commit('updateUser', {
         user: ''
+      });
+      store.commit('updateToken', {
+        token: ''
+      });
+    },
+    updateLogin(store, payload) {
+      store.commit('updateLoginStatus');
+      store.commit('updateUser', {
+        user: payload.user
+      });
+      store.commit('updateToken', {
+        token: payload.token
       });
     }
   }

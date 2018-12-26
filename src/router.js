@@ -40,6 +40,11 @@ export default (store, http) => {
         }
       },
       {
+        path: '/lobby',
+        name: 'lobby',
+        component: () => import('./views/Lobby.vue')
+      },
+      {
         path: '*',
         name: 'notfound',
         component: NotFound

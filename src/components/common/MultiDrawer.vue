@@ -13,7 +13,7 @@
         <v-touch v-on:swiperight="$store.commit('closeDrawerPage',list.type)">
           <h1>
             <Button type="text" @click="$store.commit('closeDrawerPage',list.type)">
-              <font-awesome-icon icon="angle-left"/>
+              <font-awesome-icon icon="angle-left" class="icon"/>
             </Button>
             {{list.name}}
           </h1>
@@ -60,4 +60,8 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+@import '../../style/mixins.less';
+.icon {
+  color: @primary-color;
+}
 </style>

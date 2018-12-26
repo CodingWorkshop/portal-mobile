@@ -20,7 +20,8 @@
               </i-input>
             </FormItem>
             <FormItem>
-              <Button html-type="submit" type="primary" long>
+              <Button html-type="submit" type="primary" :disabled="$store.state.login.signing"
+                long>
                 {{$store.state.login.signing?'登入中...':'登入'}}
               </Button>
             </FormItem>
@@ -192,24 +193,38 @@ export default {
       this.$store.commit('updateSigning');
       this.$refs[name].validate(valid => {
         if (valid) {
-          this.$store
-            .dispatch({
-              type: 'submitLogin',
-              user: this.loginForm.user,
-              password: this.loginForm.password
+          this.axios
+            .post(process.env.VUE_APP_LOGIN_URL, {
+              Account: this.loginForm.user,
+              Password: this.loginForm.password
             })
-            .then(() => {
-              this.$Message.success('登入成功!');
-              const destinationPage = this.$store.state.login.destinationPage;
-              if (destinationPage) {
-                this.$router.push(destinationPage);
-                this.$store.commit('recordDestinationPage', '');
-                this.$store.commit('closeDrawerPage', 'login');
+            .then(
+              response => {
+                const token = response.ReturnObject;
+
+                this.$store.dispatch('updateLogin', {
+                  user: this.loginForm.user,
+                  token: token
+                });
+
+                this.$Message.success('登入成功!');
+
+                const destinationPage = this.$store.state.login.destinationPage;
+                if (destinationPage) {
+                  this.$router.push(destinationPage);
+                  this.$store.commit('recordDestinationPage', '');
+                  this.$store.commit('closeDrawerPage', 'login');
+                }
+
+                this.$store.commit('updateSigning');
+              },
+              () => {
+                this.$Message.error('帳號密碼錯誤!');
+                this.$store.commit('updateSigning');
               }
-            });
+            );
         } else {
           this.$store.commit('updateSigning');
-          this.$Message.error('Fail!');
         }
       });
     },
@@ -221,6 +236,7 @@ export default {
         password: '',
         code: ''
       };
+      this.$Message.success('登出成功!');
     }
   }
 };
