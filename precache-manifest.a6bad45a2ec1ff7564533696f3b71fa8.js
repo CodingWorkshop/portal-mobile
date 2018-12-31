@@ -8,12 +8,12 @@ self.__precacheManifest = [
     "url": "/portal-mobile/js/about.efbd7c9a.js"
   },
   {
-    "revision": "6d87770147d80fb60f39",
+    "revision": "9468360ec1f85cc2c6db",
     "url": "/portal-mobile/css/app.1eeb7d3d.css"
   },
   {
-    "revision": "6d87770147d80fb60f39",
-    "url": "/portal-mobile/js/app.58250626.js"
+    "revision": "9468360ec1f85cc2c6db",
+    "url": "/portal-mobile/js/app.7307dfe1.js"
   },
   {
     "revision": "1784a365a00312815c89",
@@ -48,7 +48,7 @@ self.__precacheManifest = [
     "url": "/portal-mobile/img/ionicons.a2c4a261.svg"
   },
   {
-    "revision": "f3ee9545eef814394a555558cac2088c",
+    "revision": "4bc3ee2a8268347c21e0d38ed7da4445",
     "url": "/portal-mobile/index.html"
   },
   {
