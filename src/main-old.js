@@ -12,13 +12,18 @@ prepareTouch();
 import './plugins/iview.js';
 import './plugins/fortAwesome-regular.js';
 import './plugins/fortAwesome-solid.js';
-import { default as i18n, loadLangs } from './i18n';
+import {
+  // eslint-disable-next-line
+  default as i18n,
+  loadLangs
+} from './i18n';
 
 new Vue({
   router,
   store,
   i18n,
-  created: function() {
+  // eslint-disable-next-line
+  created: function () {
     loadLangs(store, http);
   },
   render: h => h(App)
