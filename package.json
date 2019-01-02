@@ -38,6 +38,7 @@
     "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
+    "@types/webpack-env": "^1.13.6",
     "@vue/cli-plugin-babel": "^3.2.2",
     "@vue/cli-plugin-eslint": "^3.2.2",
     "@vue/cli-plugin-pwa": "^3.2.2",
@@ -59,7 +60,8 @@
     "vue-cli-plugin-i18n": "^0.5.1",
     "vue-cli-plugin-iview": "^1.0.6",
     "vue-loader": "15.4.2",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.5.21",
+    "webpack-env": "^0.8.0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
