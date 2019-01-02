@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/portal-mobile/precache-manifest.f5386833bdea497eb3c2332139071223.js"
+  "/portal-mobile/precache-manifest.358697c4e4f9e05c887992d7b0d63cd0.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "portal-mobile"});
