@@ -1,11 +1,10 @@
 import Vue from 'vue';
 import App from './App.vue';
-import httpGenerator from './http';
+import http from './http';
 import store from './store/index';
 import routerGenerator from './router';
 import prepareTouch from './touch';
 
-const http = httpGenerator();
 const router = routerGenerator(store, http);
 prepareTouch();
 
