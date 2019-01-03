@@ -9,38 +9,22 @@
     <Select v-model="promotion" class="select">
       <Option v-for="(i,index) in list" :value="i.value" :key="index">{{i.label}}</Option>
     </Select>
-
     <div>
       <img v-for="(i,index) in list[this.promotion].promot" :key="index" :src="i">
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'promotion',
-  methods: {},
-  data: function() {
-    return {
-      promotion: 0,
-      list: [
-        {
-          label: '所有優惠',
-          value: 0,
-          promot: []
-        }
-      ]
-    };
-  },
-  mounted: function() {
-    this.axios
-      .get('https://next.json-generator.com/api/json/get/41s54pKJU')
-      .then(response => {
-        this.list = response.ReturnObject;
-      });
-  }
-};
+<script lang="ts">
+import { Component, Mixins } from 'vue-property-decorator';
+import PromotionCtrl from '@/controllers/Promotion';
+
+@Component
+export default class promotion extends Mixins(PromotionCtrl) {
+  created() {}
+}
 </script>
+
 <style lang="less" scoped>
 div.all {
   text-align: left;

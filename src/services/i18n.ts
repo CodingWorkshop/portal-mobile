@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
+import { Store } from 'vuex';
+import { AxiosInstance, AxiosResponse } from 'axios';
 
 Vue.use(VueI18n);
 
@@ -21,17 +23,19 @@ const langSettingList = [
   }
 ];
 
-function getLangs(store, http) {
+function getLangs(store: Store<any>, http: AxiosInstance) {
   const locale = i18n.locale;
   const localMessage = store.state.i18n.message[locale];
   i18n.setLocaleMessage(locale, localMessage);
 
   if (!localMessage) {
-    const url = langSettingList.find(l => l.locale === locale).api;
+    const url = (
+      langSettingList.find(l => l.locale === locale) || langSettingList[0]
+    ).api;
 
     http.get(url).then(
       response => {
-        const language = response.ReturnObject;
+        const language = response.data.ReturnObject;
         i18n.setLocaleMessage(locale, language.message);
         store.commit('updateLocale', {
           locale: i18n.locale,
@@ -39,7 +43,7 @@ function getLangs(store, http) {
           message: language.message
         });
       },
-      err => {
+      (err: String) => {
         alert(err);
       }
     );

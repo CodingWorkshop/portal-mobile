@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { i18nInfo, loadLangs } from '../i18n';
+import { i18nInfo, loadLangs } from '@/services/i18n';
 export default {
   name: 'account',
   data: function() {
