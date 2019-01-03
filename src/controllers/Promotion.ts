@@ -17,8 +17,7 @@ export default class PromotionCtrl extends Vue {
         'https://next.json-generator.com/api/json/get/41s54pKJU'
       )
       .then(response => {
-        let obj: any = response;
-        this.list = obj.ReturnObject;
+        this.list = response.ReturnObject;
       });
   }
 }
@@ -29,6 +28,4 @@ interface IPromotion {
   promot: any[];
 }
 
-interface IGetPromotion {
-  ReturnObject: any;
-}
+interface IGetPromotion {}
