@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { Component, Mixins } from 'vue-property-decorator';
-import PromotionCtrl from '@/controllers/Promotion.ts';
+import PromotionCtrl from '@/controllers/Promotion';
 
 @Component
 export default class promotion extends Mixins(PromotionCtrl) {

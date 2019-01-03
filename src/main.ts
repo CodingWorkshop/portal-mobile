@@ -4,9 +4,9 @@ import http from './services/http';
 import store from './store/index';
 import routerGenerator from './services/router';
 import './services/touch';
-import './plugins/iview.ts';
-import './plugins/fortAwesome-regular.ts';
-import './plugins/fortAwesome-solid.ts';
+import './plugins/iview';
+import './plugins/fortAwesome-regular';
+import './plugins/fortAwesome-solid';
 import { default as i18n, loadLangs } from './services/i18n';
 
 Vue.config.productionTip = false;

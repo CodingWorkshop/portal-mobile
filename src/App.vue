@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { Component, Mixins } from 'vue-property-decorator';
-import AppCtrl from '@/controllers/App.ts';
+import AppCtrl from '@/controllers/App';
 
 @Component
 export default class app extends Mixins(AppCtrl) {
