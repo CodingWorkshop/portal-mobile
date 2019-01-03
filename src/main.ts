@@ -1,13 +1,13 @@
 import Vue from 'vue';
 import App from './App.vue';
-import http from './http';
+import http from './services/http';
 import store from './store/index';
-import routerGenerator from './router';
-import './touch';
+import routerGenerator from './services/router';
+import './services/touch';
 import './plugins/iview.ts';
 import './plugins/fortAwesome-regular.ts';
 import './plugins/fortAwesome-solid.ts';
-import { default as i18n, loadLangs } from './i18n';
+import { default as i18n, loadLangs } from './services/i18n';
 
 Vue.config.productionTip = false;
 
