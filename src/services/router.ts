@@ -7,64 +7,68 @@ import Home from '@/views/Home.vue';
 import Account from '@/views/Account.vue';
 import NotFound from '@/views/NotFound.vue';
 
-export default (store: Store<any>, http: AxiosInstance) => {
-  Vue.use(Router);
-  const router = new Router({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes: [
-      {
-        path: '/',
-        name: 'home',
-        component: Home
-      },
-      {
-        path: '/wallet',
-        name: 'wallet',
-        component: () =>
-          import(/* webpackChunkName: "wallet" */ '@/views/Wallet.vue')
-      },
-      {
-        path: '/promotion',
-        name: 'promotion',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () =>
-          import(/* webpackChunkName: "promotion" */ '@/views/Promotion.vue')
-      },
-      {
-        path: '/account',
-        name: 'account',
-        component: Account,
-        meta: {
-          //requiredLogin: true
-        }
-      },
-      {
-        path: '/lobby',
-        name: 'lobby',
-        component: () =>
-          import(/* webpackChunkName: "lobby" */ '@/views/Lobby.vue')
-      },
-      {
-        path: '*',
-        name: 'notfound',
-        component: NotFound
+Vue.use(Router);
+const router = new Router({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/wallet',
+      name: 'wallet',
+      component: () =>
+        import(/* webpackChunkName: "wallet" */ '@/views/Wallet.vue')
+    },
+    {
+      path: '/promotion',
+      name: 'promotion',
+      /**
+       * 於路由上進行程式碼拆分
+       * 將會針對該路由產生特殊的模塊
+       * 只有訪問該路由時才會載入模塊
+       */
+      component: () =>
+        import(/* webpackChunkName: "promotion" */ '@/views/Promotion.vue')
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: Account,
+      meta: {
+        //requiredLogin: true
       }
-    ]
-  });
+    },
+    {
+      path: '/lobby',
+      name: 'lobby',
+      component: () =>
+        import(/* webpackChunkName: "lobby" */ '@/views/Lobby.vue')
+    },
+    {
+      path: '*',
+      name: 'notfound',
+      component: NotFound
+    }
+  ]
+});
 
+export default (store: Store<any>, http: AxiosInstance) => {
   router.beforeEach(function(to, from, next) {
     const requiredLogin = to.meta.requiredLogin || false;
-    if (requiredLogin && !store.state.login.loginStatus) {
-      store.commit('openDrawerPage', {
-        type: 'login'
-      });
-      store.commit('recordDestinationPage', to.path);
-    } else {
+    const loginStatus = requiredLogin && !store.state.login.loginStatus;
+    if (!loginStatus) {
       next();
+      return;
     }
+
+    store.commit('openDrawerPage', {
+      type: 'login'
+    });
+    store.commit('recordDestinationPage', to.path);
   });
 
   http.interceptors.response.use(
