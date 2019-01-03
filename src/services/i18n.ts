@@ -34,8 +34,8 @@ function getLangs(store: Store<any>, http: AxiosInstance) {
     ).api;
 
     http.get(url).then(
-      (response: AxiosResponse) => {
-        const language = response.ReturnObject;
+      response => {
+        const language = response.data.ReturnObject;
         i18n.setLocaleMessage(locale, language.message);
         store.commit('updateLocale', {
           locale: i18n.locale,

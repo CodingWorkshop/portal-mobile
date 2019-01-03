@@ -77,7 +77,7 @@ class HttpPlugin implements PluginObject<any> {
 }
 
 export interface HttpResponse<T = any> {
-  ReturnObject?: any;
+  ReturnObject?: T;
   IsSuccess?: boolean;
   ErrorMessage?: string;
 }

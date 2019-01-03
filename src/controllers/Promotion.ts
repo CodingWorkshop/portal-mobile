@@ -13,11 +13,11 @@ export default class PromotionCtrl extends Vue {
 
   mounted() {
     this.axios
-      .get<IGetPromotion>(
+      .get<IPromotion[]>(
         'https://next.json-generator.com/api/json/get/41s54pKJU'
       )
       .then(response => {
-        this.list = response.ReturnObject;
+        this.list = response.ReturnObject as IPromotion[];
       });
   }
 }
@@ -27,5 +27,3 @@ interface IPromotion {
   value: number;
   promot: any[];
 }
-
-interface IGetPromotion {}
