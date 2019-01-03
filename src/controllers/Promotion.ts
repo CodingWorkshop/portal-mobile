@@ -1,7 +1,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
-export default class promotionCtrl extends Vue {
+export default class PromotionCtrl extends Vue {
   private promotion: number = 0;
   private list: IPromotion[] = [
     {

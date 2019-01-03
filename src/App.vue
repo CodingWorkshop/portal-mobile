@@ -7,23 +7,14 @@
   </div>
 </template>
 
-<script>
-import FooterButton from '@/components/layout/FooterButton.vue';
-import MultiDrawer from '@/components/common/MultiDrawer.vue';
-export default {
-  name: 'app',
-  components: {
-    FooterButton,
-    MultiDrawer
-  },
-  computed: {
-    loading: function() {
-      return (
-        Object.keys(this.$i18n.getLocaleMessage(this.$i18n.locale)).length === 0
-      );
-    }
-  }
-};
+<script lang="ts">
+import { Component, Mixins } from 'vue-property-decorator';
+import AppCtrl from '@/controllers/App.ts';
+
+@Component
+export default class app extends Mixins(AppCtrl) {
+  created() {}
+}
 </script>
 
 <style lang="less">

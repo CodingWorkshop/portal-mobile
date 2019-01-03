@@ -17,10 +17,10 @@
 
 <script lang="ts">
 import { Component, Mixins } from 'vue-property-decorator';
-import promotionCtrl from '@/controllers/Promotion.ts';
+import PromotionCtrl from '@/controllers/Promotion.ts';
 
 @Component
-export default class promotion extends Mixins(promotionCtrl) {
+export default class promotion extends Mixins(PromotionCtrl) {
   created() {}
 }
 </script>
