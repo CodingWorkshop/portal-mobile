@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import { Store } from 'vuex';
+import { AxiosInstance } from 'axios';
 
 import Home from '@/views/Home.vue';
 import Account from '@/views/Account.vue';
 import NotFound from '@/views/NotFound.vue';
-import { Store } from 'vuex';
-import { AxiosInstance } from 'axios';
 
 export default (store: Store<any>, http: AxiosInstance) => {
   Vue.use(Router);
@@ -21,7 +21,8 @@ export default (store: Store<any>, http: AxiosInstance) => {
       {
         path: '/wallet',
         name: 'wallet',
-        component: () => import('@/views/Wallet.vue')
+        component: () =>
+          import(/* webpackChunkName: "wallet" */ '@/views/Wallet.vue')
       },
       {
         path: '/promotion',
@@ -30,8 +31,7 @@ export default (store: Store<any>, http: AxiosInstance) => {
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: () =>
-          import(/* webpackChunkName: "about" */
-          '@/views/Promotion.vue')
+          import(/* webpackChunkName: "promotion" */ '@/views/Promotion.vue')
       },
       {
         path: '/account',
@@ -44,7 +44,8 @@ export default (store: Store<any>, http: AxiosInstance) => {
       {
         path: '/lobby',
         name: 'lobby',
-        component: () => import('@/views/Lobby.vue')
+        component: () =>
+          import(/* webpackChunkName: "lobby" */ '@/views/Lobby.vue')
       },
       {
         path: '*',
