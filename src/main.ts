@@ -10,9 +10,9 @@ Vue.config.productionTip = false;
 const router = routerGenerator(store, http);
 prepareTouch();
 
-import './plugins/iview.js';
-import './plugins/fortAwesome-regular.js';
-import './plugins/fortAwesome-solid.js';
+import './plugins/iview.ts';
+import './plugins/fortAwesome-regular.ts';
+import './plugins/fortAwesome-solid.ts';
 import { default as i18n, loadLangs } from './i18n';
 
 new Vue({
