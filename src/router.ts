@@ -4,8 +4,10 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import Account from './views/Account.vue';
 import NotFound from './views/NotFound.vue';
+import { Store } from 'vuex';
+import { AxiosInstance } from 'axios';
 
-export default (store, http) => {
+export default (store: Store<any>, http: AxiosInstance) => {
   Vue.use(Router);
   const router = new Router({
     mode: 'history',

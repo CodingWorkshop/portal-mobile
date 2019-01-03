@@ -8,7 +8,7 @@ import i18n from './modules/i18n';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   modules: {
     login: login,
     drawer: drawer,
@@ -31,3 +31,5 @@ export default new Vuex.Store({
     })
   ]
 });
+
+export default store;
