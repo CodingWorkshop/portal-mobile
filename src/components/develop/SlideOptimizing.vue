@@ -1,31 +1,18 @@
 <template lang="html">
-  <section class="SlideOptimizing" v-touch:touchstart="downFunc" v-touch:touchmove="moveFunc" v-touch:touchend="endFunc">
-    <h1>{{Number(slidePercent.toFixed(0))}} %</h1>
-    <tabs v-bind:value="tabsArr[currentPageIndex]">
-        <TabPane label="page1" name="page1" style="background-color: #1064d1; color:#ffffff; height:600px;">
-          <h1>1</h1>
-        </TabPane>
-        <TabPane label="page2" name="page2" style="background-color: #598fd6; color:#ffffff;">
-          <h1>2</h1>
-        </TabPane>
-        <TabPane label="page3" name="page3" style="background-color: #e8485d; color:#ffffff;">
-          <h1>3</h1>
-        </TabPane>
-        <TabPane label="page4" name="page4" style="background-color: #EF7F8D; color:#ffffff;">
-          <h1>4</h1>
-        </TabPane>
-    </tabs>
+  <section v-touch:touchstart="downFunc" v-touch:touchmove="moveFunc" v-touch:touchend="endFunc">
+    <!--<h1>{{Number(slidePercent.toFixed(0))}} %</h1>-->
+    <slot></slot>
   </section>
 </template>
 
 <script>
+import GameBox from '@/components/common/GameBox.vue';
 export default {
   name: 'SlideOptimizing',
-  props: [],
+  props: ['pageLength'],
   data: function(event) {
     return {
       currentPageIndex: 0,
-      pageIndexLength: 3,
       slideTouchPoint: 0,
       slidePercent: 0,
       clientWidth: 0,
@@ -75,13 +62,13 @@ export default {
       }
 
       var isLessThanMinIndex = this.currentPageIndex < 0;
-      var isMoreThanMaxIndex = this.currentPageIndex > this.pageIndexLength;
+      var isMoreThanMaxIndex = this.currentPageIndex > this.pageLength - 1;
 
       if (isLessThanMinIndex) {
         this.currentPageIndex = 0;
       }
       if (isMoreThanMaxIndex) {
-        this.currentPageIndex = this.pageIndexLength;
+        this.currentPageIndex = this.pageLength - 1;
       }
 
       this.slidePercent = 0;
@@ -94,9 +81,4 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.SlideOptimizing {
-  h1 {
-    padding: 10px 0;
-  }
-}
 </style>
