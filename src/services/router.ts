@@ -6,6 +6,7 @@ import { AxiosInstance } from 'axios';
 import Home from '@/views/Home.vue';
 import Account from '@/views/Account.vue';
 import NotFound from '@/views/NotFound.vue';
+import SlideOptimizing from '../components/develop/SlideOptimizing.vue';
 
 Vue.use(Router);
 const router = new Router({
@@ -47,6 +48,11 @@ const router = new Router({
       name: 'lobby',
       component: () =>
         import(/* webpackChunkName: "lobby" */ '@/views/Lobby.vue')
+    },
+    {
+      path: '/slide',
+      name: 'SlideOptimizing',
+      component: SlideOptimizing
     },
     {
       path: '*',
