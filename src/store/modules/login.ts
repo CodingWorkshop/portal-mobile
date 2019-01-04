@@ -35,41 +35,46 @@ export default class LoginStore extends VuexModule {
   }
 
   @Action
-  checkLogin(store: ILoginActionStore<ILogin>) {
+  checkLogin() {
+    const context = this.context;
     return new Promise(resolve => {
       setTimeout(() => {
-        store.commit('updateSigning');
+        context.commit('updateSigning');
         resolve();
       }, 2000);
     });
   }
 
   @Action
-  submitLogin(store: ILoginActionStore<string>, payload: string) {
-    return store.dispatch('checkLogin').then(() => {
-      store.commit('updateLoginStatus');
-      store.commit('updateUser', payload);
+  submitLogin(payload: string) {
+    const context = this.context;
+
+    return context.dispatch('checkLogin').then(() => {
+      context.commit('updateLoginStatus');
+      context.commit('updateUser', payload);
     });
   }
 
   @Action
-  submitLogout(store: ILoginActionStore<ILogin>) {
-    store.commit('updateLoginStatus');
-    store.commit('updateUser', {
+  submitLogout() {
+    const context = this.context;
+    context.commit('updateLoginStatus');
+    context.commit('updateUser', {
       user: ''
     });
-    store.commit('updateToken', {
+    context.commit('updateToken', {
       token: ''
     });
   }
 
   @Action
-  updateLogin(store: ILoginActionStore<ILogin>, payload: ILogin) {
-    store.commit('updateLoginStatus');
-    store.commit('updateUser', {
+  updateLogin(payload: ILogin) {
+    const context = this.context;
+    context.commit('updateLoginStatus');
+    context.commit('updateUser', {
       user: payload.user
     });
-    store.commit('updateToken', {
+    context.commit('updateToken', {
       token: payload.token
     });
   }
