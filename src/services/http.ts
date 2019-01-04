@@ -6,7 +6,7 @@ const http = axios.create({
   baseURL: process.env.VUE_APP_BASE_URL
 });
 
-class HttpService {
+export class HttpService {
   get<T>(url: string, option?: any) {
     return http.get<HttpResponse<T>>(url, option).then(response => {
       if (response.data.IsSuccess) {
@@ -31,7 +31,7 @@ const jwt = axios.create({
   baseURL: process.env.VUE_APP_BASE_URL
 });
 
-class JWTService {
+export class JWTService {
   get<T>(url: string, option?: any) {
     return jwt.get<HttpResponse<T>>(url, option).then(response => {
       if (response.data.IsSuccess) {
@@ -52,10 +52,11 @@ class JWTService {
   }
 }
 
+const httpService = new HttpService();
+const jwtService = new JWTService();
+
 class HttpPlugin implements PluginObject<any> {
   install: PluginFunction<any> = (Vue, option) => {
-    const httpService = new HttpService();
-    const jwtService = new JWTService();
     Object.defineProperties(Vue.prototype, {
       axios: {
         get() {
@@ -94,7 +95,7 @@ declare module 'vue/types/vue' {
   }
 }
 
-export default (router: Router) => {
+export default (router: Router): HttpService => {
   http.interceptors.response.use(
     response => response,
     error => {
@@ -135,5 +136,5 @@ export default (router: Router) => {
   );
 
   Vue.use(new HttpPlugin());
-  return http;
+  return httpService;
 };
