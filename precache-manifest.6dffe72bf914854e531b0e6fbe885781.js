@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "8dca9a9bc71820efd344",
+    "revision": "cc2fc0e5d1e6b88b64c5",
     "url": "/portal-mobile/css/app.31be9a3d.css"
   },
   {
-    "revision": "8dca9a9bc71820efd344",
-    "url": "/portal-mobile/js/app.106e771a.js"
+    "revision": "cc2fc0e5d1e6b88b64c5",
+    "url": "/portal-mobile/js/app.8fe7177e.js"
   },
   {
     "revision": "cc43bd06eb3dcbc68092",
@@ -20,20 +20,20 @@ self.__precacheManifest = [
     "url": "/portal-mobile/js/lobby.e0d74f03.js"
   },
   {
-    "revision": "e18fa4560a1d586f1026",
+    "revision": "969df0112ebb4d6f2ddf",
     "url": "/portal-mobile/css/promotion.cd30b66c.css"
   },
   {
-    "revision": "e18fa4560a1d586f1026",
-    "url": "/portal-mobile/js/promotion.18c92f4d.js"
+    "revision": "969df0112ebb4d6f2ddf",
+    "url": "/portal-mobile/js/promotion.cbd15fa2.js"
   },
   {
-    "revision": "d95dffe0d7832ae6394f",
-    "url": "/portal-mobile/css/wallet.49d7a741.css"
+    "revision": "2e5bdf10065d7ebf4410",
+    "url": "/portal-mobile/css/wallet.7f370f33.css"
   },
   {
-    "revision": "d95dffe0d7832ae6394f",
-    "url": "/portal-mobile/js/wallet.2413e957.js"
+    "revision": "2e5bdf10065d7ebf4410",
+    "url": "/portal-mobile/js/wallet.7da6771d.js"
   },
   {
     "revision": "d535a25a79fb1365ae814b61e88fae71",
@@ -48,7 +48,7 @@ self.__precacheManifest = [
     "url": "/portal-mobile/img/ionicons.a2c4a261.svg"
   },
   {
-    "revision": "ba3b8fb7e3936ecc992fb95627df6848",
+    "revision": "2836c5755d0ca2aece693d62cb2d810f",
     "url": "/portal-mobile/index.html"
   },
   {
