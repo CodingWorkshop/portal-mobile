@@ -4,21 +4,10 @@
       <tab-pane label="會員登入" name="login">
         <v-touch tag="body" v-on:swipeleft="key='register'">
           <font-awesome-icon icon="user-circle" class="fa-10x login-icon" />
-          <Form @submit.native.prevent="loginSubmit('loginForm')" ref="loginForm"
-            :model="loginForm" :rules="loginRuleValidate">
-            <FormItem prop="user">
-              <i-input v-model="loginForm.user" placeholder="帳號" clearable>
-              </i-input>
-            </FormItem>
-            <FormItem prop="password">
-              <i-input v-model="loginForm.password" type="password" placeholder="密碼"
-                clearable>
-              </i-input>
-            </FormItem>
-            <FormItem prop="code">
-              <i-input v-model="loginForm.code" placeholder="驗證碼" clearable>
-              </i-input>
-            </FormItem>
+          <Form @submit.native.prevent="loginSubmit('loginForm')" :model="loginForm"
+            ref="loginForm">
+            <form-input v-for="(item, index) in loginList" :key="index" :detail="item"
+              :modelForm="loginForm" @change-input="loginForm=$event"></form-input>
             <FormItem>
               <Button html-type="submit" type="primary" :disabled="$store.state.login.signing"
                 long>
@@ -33,8 +22,10 @@
       </tab-pane>
       <tab-pane label="立即註冊" name="register">
         <v-touch tag="body" v-on:swiperight="key='login'">
-          <Form @submit.native.prevent="registerSubmit('registerForm')" :model="registerForm" ref="registerForm">
-            <form-input v-for="(item, index) in registerList" :key="index" :detail="item" :modelForm="registerForm"></form-input>
+          <Form @submit.native.prevent="registerSubmit('registerForm')" :model="registerForm"
+            ref="registerForm">
+            <form-input v-for="(item, index) in registerList" :key="index"
+              :detail="item" :modelForm="registerForm" @change-input="registerForm=$event"></form-input>
             <FormItem>
               <Button html-type="submit" type="primary" long>送出</Button>
             </FormItem>
@@ -61,17 +52,17 @@ const registerList = [
   {
     name: '會員帳號',
     model: 'Account',
-    placeholder: '請輸入會員帳號 需字母開頭 限數字和底線',
+    placeholder: '2 - 15 字元，字母開頭，限字母，數字和底線',
     type: 'text',
     maxlength: 15,
-    pattern: '/^[a-zA-Z]|d+/'
+    pattern: /^[a-zA-Z]\w{1,}/
   },
   {
     name: '會員密碼',
     model: 'Password',
-    placeholder: '請輸入會員密碼',
+    placeholder: '6 個字元以上，須包含字母及數字',
     type: 'password',
-    pattern: '/[a-zA-Z]|d+/'
+    pattern: /\w{6,}/
   },
   {
     name: '確認密碼',
@@ -83,7 +74,8 @@ const registerList = [
     name: '取款密碼',
     model: 'MoneyPassword',
     placeholder: '請輸入取款密碼',
-    type: 'password'
+    type: 'password',
+    pattern: /[0-9]/
   },
   {
     name: '真實姓名',
@@ -96,7 +88,7 @@ const registerList = [
     model: 'Mobile',
     placeholder: '請輸入手機號碼',
     type: 'text',
-    pattern: '/[0-9]/'
+    pattern: /[0-9]/
   },
   {
     name: '電子信箱',
@@ -143,30 +135,29 @@ export default {
         password: '',
         code: ''
       },
-      loginRuleValidate: {
-        user: [
-          {
-            required: true,
-            message: 'The user cannot be empty',
-            trigger: 'blur'
-          }
-        ],
-        password: [
-          {
-            required: true,
-            message: 'The password cannot be empty',
-            trigger: 'blur'
-          }
-        ],
-        code: [
-          {
-            type: 'string',
-            required: true,
-            message: 'The code cannot be empty',
-            trigger: 'blur'
-          }
-        ]
-      },
+      loginList: [
+        {
+          name: '帳號',
+          model: 'user',
+          placeholder: '請輸入帳號',
+          type: 'text',
+          isRequired: true
+        },
+        {
+          name: '密碼',
+          model: 'password',
+          placeholder: '請輸入密碼',
+          type: 'password',
+          isRequired: true
+        },
+        {
+          name: '驗證碼',
+          model: 'code',
+          placeholder: '請依右圖中的字輸入驗證碼',
+          type: 'text',
+          isRequired: true
+        }
+      ],
       registerForm: {
         Referrer: '',
         Account: '',
@@ -228,11 +219,12 @@ export default {
     },
     registerSubmit: function(name) {
       this.$refs[name].validate(valid => {
-        console.log(this.registerForm);
         if (!valid) {
           this.$Message.success('失敗!');
           return;
         }
+
+        console.log(this.registerForm);
         this.$Message.success('成功!');
       });
     },
@@ -251,17 +243,19 @@ export default {
       .get('https://next.json-generator.com/api/json/get/V1bIvscJU')
       .then(response => {
         this.masterRule = response.ReturnObject;
+        console.log(this.masterRule);
         registerList.forEach(r => {
           r.isRequired =
-            this.masterRule['IsRequired_' + r.name] == undefined
+            this.masterRule['IsRequired_' + r.model] === undefined
               ? true
-              : this.masterRule['IsRequired_' + r.name];
+              : this.masterRule['IsRequired_' + r.model];
           r.isShow =
-            this.masterRule['IsShow_' + r.name] == undefined
+            this.masterRule['IsShow_' + r.model] === undefined
               ? true
-              : this.masterRule['IsShow_' + r.name];
+              : this.masterRule['IsShow_' + r.model];
         });
         this.registerList = registerList.filter(r => r.isShow == true);
+        console.log(this.registerList);
       });
   }
 };

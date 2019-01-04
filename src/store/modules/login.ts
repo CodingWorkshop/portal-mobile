@@ -36,10 +36,10 @@ export default class LoginStore extends VuexModule {
 
   @Action
   checkLogin() {
-    const context = this.context;
+    const store = this.context;
     return new Promise(resolve => {
       setTimeout(() => {
-        context.commit('updateSigning');
+        store.commit('updateSigning');
         resolve();
       }, 2000);
     });
@@ -47,34 +47,34 @@ export default class LoginStore extends VuexModule {
 
   @Action
   submitLogin(payload: string) {
-    const context = this.context;
+    const store = this.context;
 
-    return context.dispatch('checkLogin').then(() => {
-      context.commit('updateLoginStatus');
-      context.commit('updateUser', payload);
+    return store.dispatch('checkLogin').then(() => {
+      store.commit('updateLoginStatus');
+      store.commit('updateUser', payload);
     });
   }
 
   @Action
   submitLogout() {
-    const context = this.context;
-    context.commit('updateLoginStatus');
-    context.commit('updateUser', {
+    const store = this.context;
+    store.commit('updateLoginStatus');
+    store.commit('updateUser', {
       user: ''
     });
-    context.commit('updateToken', {
+    store.commit('updateToken', {
       token: ''
     });
   }
 
   @Action
   updateLogin(payload: ILogin) {
-    const context = this.context;
-    context.commit('updateLoginStatus');
-    context.commit('updateUser', {
+    const store = this.context;
+    store.commit('updateLoginStatus');
+    store.commit('updateUser', {
       user: payload.user
     });
-    context.commit('updateToken', {
+    store.commit('updateToken', {
       token: payload.token
     });
   }
