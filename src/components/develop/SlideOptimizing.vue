@@ -1,6 +1,6 @@
 <template lang="html">
   <section class="SlideOptimizing" v-touch:touchstart="downFunc" v-touch:touchmove="moveFunc" v-touch:touchend="endFunc">
-    <h1>SlideOptimizing</h1>
+    <h1>{{Number(slidePercent.toFixed(0))}} %</h1>
     <tabs v-bind:value="tabsArr[currentPageIndex]">
         <TabPane label="page1" name="page1" style="background-color: #1064d1; color:#ffffff; height:600px;">
           <h1>1</h1>
