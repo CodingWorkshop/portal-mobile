@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "84c845b20a20239a00ff",
-    "url": "/portal-mobile/css/app.da47eee9.css"
+    "revision": "8dca9a9bc71820efd344",
+    "url": "/portal-mobile/css/app.31be9a3d.css"
   },
   {
-    "revision": "84c845b20a20239a00ff",
-    "url": "/portal-mobile/js/app.6b5d8044.js"
+    "revision": "8dca9a9bc71820efd344",
+    "url": "/portal-mobile/js/app.106e771a.js"
   },
   {
     "revision": "cc43bd06eb3dcbc68092",
@@ -20,12 +20,12 @@ self.__precacheManifest = [
     "url": "/portal-mobile/js/lobby.e0d74f03.js"
   },
   {
-    "revision": "969df0112ebb4d6f2ddf",
+    "revision": "e18fa4560a1d586f1026",
     "url": "/portal-mobile/css/promotion.cd30b66c.css"
   },
   {
-    "revision": "969df0112ebb4d6f2ddf",
-    "url": "/portal-mobile/js/promotion.cbd15fa2.js"
+    "revision": "e18fa4560a1d586f1026",
+    "url": "/portal-mobile/js/promotion.18c92f4d.js"
   },
   {
     "revision": "d95dffe0d7832ae6394f",
@@ -48,7 +48,7 @@ self.__precacheManifest = [
     "url": "/portal-mobile/img/ionicons.a2c4a261.svg"
   },
   {
-    "revision": "f17bfe8503c4af00109ae9e0ee17d73c",
+    "revision": "ba3b8fb7e3936ecc992fb95627df6848",
     "url": "/portal-mobile/index.html"
   },
   {
