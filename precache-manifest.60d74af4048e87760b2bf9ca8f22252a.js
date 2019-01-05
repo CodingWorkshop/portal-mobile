@@ -1,39 +1,39 @@
 self.__precacheManifest = [
   {
-    "revision": "5be1477f102e429a6b7e",
+    "revision": "dc10837e2a0fe95e2785",
     "url": "/portal-mobile/css/app.ca23be40.css"
   },
   {
-    "revision": "5be1477f102e429a6b7e",
-    "url": "/portal-mobile/js/app.92cd8a17.js"
+    "revision": "dc10837e2a0fe95e2785",
+    "url": "/portal-mobile/js/app.621ddc6e.js"
   },
   {
     "revision": "55f544bf3e7b311cb06d",
     "url": "/portal-mobile/js/chunk-vendors.f6fc32d1.js"
   },
   {
-    "revision": "e8d0ec69ae2e75bce32a",
+    "revision": "9e835479695407ace9ca",
     "url": "/portal-mobile/css/lobby.3291b0a2.css"
   },
   {
-    "revision": "e8d0ec69ae2e75bce32a",
-    "url": "/portal-mobile/js/lobby.70c72001.js"
+    "revision": "9e835479695407ace9ca",
+    "url": "/portal-mobile/js/lobby.35ebc100.js"
   },
   {
-    "revision": "969df0112ebb4d6f2ddf",
+    "revision": "18dc58f2b33a91da10a6",
     "url": "/portal-mobile/css/promotion.cd30b66c.css"
   },
   {
-    "revision": "969df0112ebb4d6f2ddf",
-    "url": "/portal-mobile/js/promotion.cbd15fa2.js"
+    "revision": "18dc58f2b33a91da10a6",
+    "url": "/portal-mobile/js/promotion.16b026c3.js"
   },
   {
-    "revision": "2e5bdf10065d7ebf4410",
+    "revision": "be6f6f48bddf703a9c48",
     "url": "/portal-mobile/css/wallet.7f370f33.css"
   },
   {
-    "revision": "2e5bdf10065d7ebf4410",
-    "url": "/portal-mobile/js/wallet.7da6771d.js"
+    "revision": "be6f6f48bddf703a9c48",
+    "url": "/portal-mobile/js/wallet.a2d595a1.js"
   },
   {
     "revision": "d535a25a79fb1365ae814b61e88fae71",
@@ -48,7 +48,7 @@ self.__precacheManifest = [
     "url": "/portal-mobile/img/ionicons.a2c4a261.svg"
   },
   {
-    "revision": "e518eab41e458739583d62bcc16012ce",
+    "revision": "4870357c2c98af792c1f7343fbd04552",
     "url": "/portal-mobile/index.html"
   },
   {
