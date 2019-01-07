@@ -46,12 +46,12 @@ export default {
       this.pageIndex = count;
       console.log('key: ', this.activeKey);
     },*/
-    setActiveKey(itemName) {
+    setActiveKey(tabItem) {
       var index = this.walletDetail.findIndex(
-        item => item.name === itemName.name
+        item => item.name === (tabItem.name || tabItem)
       );
       this.pageIndex = index;
-      this.activeKey = itemName.name;
+      this.activeKey = tabItem.name || tabItem;
     }
   },
   data: function() {
