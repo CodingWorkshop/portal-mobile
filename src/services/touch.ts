@@ -8,11 +8,12 @@ VueTouch.registerCustomEvent('doubletap', {
   taps: 2
 });
 
-Vue.config.productionTip = false;
 Vue.use(VueTouch, {
   name: 'v-touch'
 });
+
 Vue.use(vuePluginTouch);
+
 VueTouch.config.swipe = {
   direction: 'horizontal'
 };
