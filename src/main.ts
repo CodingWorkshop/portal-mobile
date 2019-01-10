@@ -9,6 +9,7 @@ import './plugins/fortAwesome-regular';
 import './plugins/fortAwesome-solid';
 import { default as i18n, loadLangs } from './services/i18n';
 
+// 關閉產品模式下的提示訊息
 Vue.config.productionTip = false;
 
 const router = routerGenerator(store);
