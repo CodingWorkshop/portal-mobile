@@ -3,7 +3,8 @@ const {
 } = require('child_process');
 const fs = require('fs-extra');
 const path = require('path');
-const dayjs = require('dayjs');
+
+const log = require(path.join(process.cwd(), 'scripts', 'utils', 'log'));
 
 generateCustomStyle();
 prepareENV();
@@ -16,8 +17,15 @@ function prepareENV() {
       stdio: 'inherit'
     });
   } else {
-    console.log(`[${getNow()}][INFO]:Environment is not production.`);
-    console.log(`[${getNow()}][INFO]:Do not execute npm run build.`)
+    log({
+      type: 'INFO',
+      description: `Environment is not production.`
+    });
+
+    log({
+      type: 'INFO',
+      description: `Do not execute npm run build.`
+    });
   }
 }
 
@@ -29,10 +37,9 @@ function generateCustomStyle() {
     'variables.less'
   );
   fs.ensureFile(customStylePath).then(() => {
-    console.log(`[${getNow()}][INFO]:generate custom style`);
+    log({
+      type: 'INFO',
+      description: `generate custom style`
+    });
   })
-}
-
-function getNow() {
-  return dayjs().format('YYYY-MM-DD HH:mm:ss')
 }
