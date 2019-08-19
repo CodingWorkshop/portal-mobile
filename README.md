@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/CodingWorkshop/portal-mobile.svg?branch=master)](https://travis-ci.org/CodingWorkshop/portal-mobile) [![Dependency Status](https://david-dm.org/CodingWorkshop/portal-mobile.svg)](https://david-dm.org/CodingWorkshop/portal-mobile) [![devDependency Status](https://david-dm.org/CodingWorkshop/portal-mobile/dev-status.svg)](https://david-dm.org/CodingWorkshop/portal-mobile?type=dev)
+[![Build Status](https://travis-ci.com/CodingWorkshop/portal-mobile.svg?branch=master)](https://travis-ci.com/CodingWorkshop/portal-mobile) [![Dependency Status](https://david-dm.org/CodingWorkshop/portal-mobile.svg)](https://david-dm.org/CodingWorkshop/portal-mobile) [![devDependency Status](https://david-dm.org/CodingWorkshop/portal-mobile/dev-status.svg)](https://david-dm.org/CodingWorkshop/portal-mobile?type=dev)
 
 # portal-mobile
 
